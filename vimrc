@@ -419,6 +419,17 @@ function! ConvertRubyHashSyntax()
 :endfunction
 nnoremap <leader>h :call ConvertRubyHashSyntax()<CR>
 
+" Promote variable to rspec let
+function! PromoteToLet()
+  :normal! dd
+  " :exec '?^\s*it\>'
+  :normal! P
+  :.s/\(\w\+\) = \(.*\)$/let(:\1) { \2 }/
+  :normal ==
+endfunction
+:command! PromoteToLet :call PromoteToLet()
+:map <leader>p :PromoteToLet<cr>
+
 " Simple re-format for minified Javascript
 command! UnMinify call UnMinify()
 function! UnMinify()
