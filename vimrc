@@ -12,15 +12,13 @@ call vundle#begin()
 
 Plugin 'gmarik/vundle'
 
-Plugin 'Valloric/YouCompleteMe'
+Plugin 'ajh17/VimCompletesMe'
 Plugin 'bling/vim-airline'
 Plugin 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
 Plugin 'dag/vim-fish'
 Plugin 'danro/rename.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'gorkunov/smartpairs.vim'
-Plugin 'greyblake/vim-preview'
-Plugin 'henrik/vim-ruby-runner'
 Plugin 'honza/vim-snippets'
 Plugin 'int3/vim-extradite'
 Plugin 'kien/ctrlp.vim'
@@ -31,13 +29,11 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'ap/vim-css-color'
 Plugin 'tomtom/tcomment_vim'
-Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rails'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'vim-scripts/matchit.zip'
-Plugin 'janko-m/vim-test'
 Plugin 'vim-scripts/gitignore'
 
 call vundle#end()
@@ -128,28 +124,16 @@ let g:airline_powerline_fonts = 1
 " Bind K to search for the word under cursor
 nnoremap K :Ag "\b<C-R><C-W>\b"<CR>:cw<CR>
 
-" YouCompleteMe
-let g:ycm_completion_confirm_key = '<enter>'
-
 " Ruby complete
-let g:rubycomplete_buffer_loading = 1
-let g:rubycomplete_rails = 1
-let g:rubycomplete_classes_in_global = 1
-
-" vim-test
-nmap <silent> <leader>t :TestNearest<CR>
-nmap <silent> <leader>T :TestFile<CR>
-nmap <silent> <leader>a :TestSuite<CR>
-nmap <silent> <leader>la :TestLast<CR>
-nmap <silent> <leader>g :TestVisit<CR>
-
-let test#strategy = "neovim"
+autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 
 " Settings
 "==================================
 
 " Completion
-autocmd FileType ruby       set omnifunc=rubycomplete#Complete
+autocmd FileType ruby,eruby set omnifunc=syntaxcomplete#Complete
 autocmd FileType python     set omnifunc=pythoncomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html       set omnifunc=htmlcomplete#CompleteTags
@@ -166,6 +150,15 @@ set whichwrap+=<,>,h,l
 set autoindent
 set smartindent
 set shiftround
+
+" don’t want to be bother by a popup showing me that there is a single match
+set completeopt=menu
+
+" allow unsaved background buffers and remember marks/undo for them
+set hidden
+
+" display incomplete commands
+set showcmd
 
 " For regular expressions turn magic on
 set magic
@@ -187,6 +180,7 @@ set ttyfast
 set lazyredraw
 
 " Folding settings
+set foldmethod=manual
 set nofoldenable        " dont fold by default
 
 " Add a bit extra margin to the left
