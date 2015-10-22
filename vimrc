@@ -151,6 +151,8 @@ set autoindent
 set smartindent
 set shiftround
 
+set title
+
 " don’t want to be bother by a popup showing me that there is a single match
 set completeopt=menu
 
