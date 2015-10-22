@@ -62,10 +62,17 @@ function! s:align()
   endif
 endfunction
 
-vnoremap <leader>a= :Tabularize /=<CR>
-nnoremap <leader>a= :normal vir,a=<CR>
-vnoremap <leader>a{ :Tabularize /{<CR>
-nnoremap <leader>a{ :normal vir,a{<CR>
+nmap <leader>t= :Tabularize /=<CR>
+vmap <leader>t= :Tabularize /=<CR>
+" key => value
+nmap <leader>t> :Tabularize /=><CR>
+vmap <leader>t> :Tabularize /=><CR>
+" key: value
+nmap <leader>t: :Tabularize /:\zs<CR>
+vmap <leader>t: :Tabularize /:\zs<CR>
+" Ruby symbols
+nmap <leader>ts :Tabularize /:/l1c0l0<CR>
+vmap <leader>ts :Tabularize /:/l1c0l0<CR>
 cnoreabbrev Tab Tabularize
 
 " CtrlP
