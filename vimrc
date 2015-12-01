@@ -12,7 +12,7 @@ call vundle#begin()
 
 Plugin 'gmarik/vundle'
 
-Plugin 'ajh17/VimCompletesMe'
+Plugin 'ervandew/supertab'
 Plugin 'bling/vim-airline'
 Plugin 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
 Plugin 'dag/vim-fish'
