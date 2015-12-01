@@ -286,7 +286,7 @@ set formatoptions=qrn1
 " Time out on key codes but not mappings
 set notimeout
 set timeout
-set timeoutlen=100
+set timeoutlen=300
 
 " As seen on Vimcasts, expand path for the current file
 let mapleader=','
