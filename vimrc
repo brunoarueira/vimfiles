@@ -38,6 +38,7 @@ Plugin 'tpope/vim-rails'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'vim-scripts/matchit.zip'
 Plugin 'vim-scripts/gitignore'
+Plugin 'bogado/file-line'
 
 call vundle#end()
 
