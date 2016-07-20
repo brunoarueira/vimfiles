@@ -183,7 +183,7 @@ set mat=2
 
 " No annoying sound on errors
 set noerrorbells
-set novisualbell
+set visualbell
 set t_vb=
 set tm=500
 
@@ -347,6 +347,10 @@ map <C-up> <c-w>k
 map <C-right> <c-w>l
 map <C-left> <c-w>h
 
+" Move between tabs
+nnoremap <F3> gt
+nnoremap <F4> gT
+
 " Theme
 "===================================
 
@@ -354,6 +358,7 @@ map <C-left> <c-w>h
 set guifont=Monaco\ for\ Powerline:h14
 
 set guioptions-=T
+set guioptions-=m "remove menu bar
 
 set background=dark
 let base16colorspace=256 " Access colors present in 256 colorspace
@@ -364,7 +369,6 @@ set cursorline cursorcolumn
 if has("gui_running")
   set lines=57
   set columns=237
-  set guioptions-=T
   set guioptions-=e
   set t_Co=256
   set guitablabel=%M\ %t
