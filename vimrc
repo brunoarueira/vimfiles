@@ -13,7 +13,8 @@ call vundle#begin()
 Plugin 'gmarik/vundle'
 
 Plugin 'ervandew/supertab'
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
 Plugin 'dag/vim-fish'
 Plugin 'danro/rename.vim'
@@ -130,6 +131,14 @@ let g:syntastic_javascript_checkers = ['jscs']
 
 " vim-airline
 set laststatus=2
+let g:airline_theme='tomorrow'
+let g:airline_inactive_collapse=1
+let g:airline#extensions#branch#displayed_head_limit = 15
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline#extensions#branch#empty_message = ''
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline_powerline_fonts = 1
 
 " Bind K to search for the word under cursor
