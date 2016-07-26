@@ -533,4 +533,9 @@ au BufNewFile,BufRead bash_profile set filetype=sh
 au bufnewfile,bufread Capfile      set filetype=ruby
 au bufnewfile,bufread Gemfile      set filetype=ruby
 
+" Other usefull things
+"================================
+
+au BufWritePost .vimrc so ~/.vimrc " automatically reload vimrc when it's saved
+
 autocmd Filetype gitcommit setlocal spell textwidth=72
