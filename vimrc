@@ -505,6 +505,14 @@ endfunction
 
 nnoremap <leader>qs :call QuoteSwitcher()<cr>
 
+" Project Specific vimrc
+"=================================
+
+" allow project-specific vimrc files to be sourced
+set exrc
+" make sure project-specific vimrc files don't do unsafe things
+set secure
+
 " Aliases
 "=================================
 
