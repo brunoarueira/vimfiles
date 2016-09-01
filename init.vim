@@ -134,7 +134,6 @@ set laststatus=2
 let g:airline_theme='tomorrow'
 let g:airline_inactive_collapse=1
 let g:airline#extensions#branch#displayed_head_limit = 15
-let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline#extensions#branch#empty_message = ''
 let g:airline_powerline_fonts = 1
 
