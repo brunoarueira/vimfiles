@@ -195,7 +195,9 @@ set nofoldenable        " dont fold by default
 " Add a bit extra margin to the left
 set foldcolumn=1
 
-set encoding=utf-8 nobomb
+if !has('nvim')
+  set encoding=utf-8 nobomb
+endif
 
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
