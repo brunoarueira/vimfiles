@@ -141,27 +141,18 @@ let g:airline_powerline_fonts = 1
 " Bind K to search for the word under cursor
 nnoremap K :Ag "\b<C-R><C-W>\b"<CR>:cw<CR>
 
-" Ruby complete
-autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
-autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
-autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
-
 " Settings
 "==================================
 
 " Completion
-autocmd FileType ruby,eruby set omnifunc=syntaxcomplete#Complete
-autocmd FileType python     set omnifunc=pythoncomplete#Complete
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType html       set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType css        set omnifunc=csscomplete#CompleteCSS
-autocmd FileType xml        set omnifunc=xmlcomplete#CompleteTags
-autocmd FileType c          set omnifunc=ccomplete#Complete
+au FileType python set omnifunc=pythoncomplete#Complete
+au FileType html   set omnifunc=htmlcomplete#CompleteTags
+au FileType css    set omnifunc=csscomplete#CompleteCSS
+au FileType xml    set omnifunc=xmlcomplete#CompleteTags
+
+set t_Co=256
 
 " Autoindent with two spaces, always expand tabs
-set tabstop=2
-set shiftwidth=2
-set expandtab
 set backspace=indent,eol,start
 set whichwrap+=<,>,h,l
 set autoindent
@@ -373,20 +364,6 @@ let base16colorspace=256 " Access colors present in 256 colorspace
 " Highlight the line and the column of the current position of cursor
 set cursorline cursorcolumn
 
-if has("gui_running")
-  set lines=57
-  set columns=237
-  set guioptions-=e
-  set t_Co=256
-  set guitablabel=%M\ %t
-endif
-
-if has("gui_running") || $TERM == "xterm-256color"
-  set t_Co=256
-else
-  let g:CSApprox_loaded = 0
-endif
-
 colorscheme Tomorrow-Night-Eighties
 
 " Functions
@@ -420,8 +397,8 @@ function! CollapseMultipleBlankLines()
   g/^\_$\n\_^$/d
   ''
 :endfunction
-map <leader>- :call CollapseMultipleBlankLines()<CR>
-map! <leader>- :call CollapseMultipleBlankLines()<CR>
+:map <leader>- :call CollapseMultipleBlankLines()<CR>
+:map! <leader>- :call CollapseMultipleBlankLines()<CR>
 
 " Invert lines
 function! InvertLines()
@@ -429,35 +406,6 @@ function! InvertLines()
   ''
 :endfunction
 nnoremap <leader>il :call InvertLines()<cr>
-
-" Convert Ruby 1.8 to 1.9 Hash Syntax - http://robots.thoughtbot.com/convert-ruby-1-8-to-1-9-hash-syntax
-function! ConvertRubyHashSyntax()
-  %s/:\([^ ]*\)\(\s*\)=>/\1:/g
-  ''
-:endfunction
-nnoremap <leader>h :call ConvertRubyHashSyntax()<CR>
-
-" Promote variable to rspec let
-function! PromoteToLet()
-  :normal! dd
-  " :exec '?^\s*it\>'
-  :normal! P
-  :.s/\(\w\+\) = \(.*\)$/let(:\1) { \2 }/
-  :normal ==
-endfunction
-:command! PromoteToLet :call PromoteToLet()
-:map <leader>p :PromoteToLet<cr>
-
-" Simple re-format for minified Javascript
-command! UnMinify call UnMinify()
-function! UnMinify()
-    %s/{\ze[^\r\n]/{\r/g
-    %s/){/) {/g
-    %s/};\?\ze[^\r\n]/\0\r/g
-    %s/;\ze[^\r\n]/;\r/g
-    %s/[^\s]\zs[=&|]\+\ze[^\s]/ \0 /g
-    normal ggVG=
-endfunction
 
 " Creates parent directories on save
 function! s:MkNonExDir(file, buf)
@@ -473,7 +421,7 @@ augroup BWCCreateDir
   autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
 augroup END
 
-" Wrap the word under the cursor in quotes.  If in ruby mode,
+" Wrap the word under the cursor in quotes. If in ruby mode,
 " cycle between quoting styles and symbols.
 "
 " variable -> "variable" -> 'variable' -> :variable
@@ -485,7 +433,6 @@ function! QuoteSwitcher()
   if l:type == '"'
     " Double quote to single
     execute ":normal viWc'" . l:word . "'"
-
   elseif l:type == "'"
     if &ft == 'ruby' || &ft == 'rspec'
       " Single quote to symbol
@@ -494,7 +441,6 @@ function! QuoteSwitcher()
       " Single quote to double
       execute ':normal viWc"' . l:word . '"'
     end
-
   else
     " Whatever to double quote
     execute ':normal viWc"' . l:word . '"'
@@ -503,7 +449,6 @@ function! QuoteSwitcher()
   " Move the cursor back into the cl:word
   call cursor( 0, getpos('.')[2] - 1 )
 endfunction
-
 nnoremap <leader>qs :call QuoteSwitcher()<cr>
 
 " Project Specific vimrc
@@ -526,22 +471,11 @@ cab WQ wq
 " Syntax Highlighting
 "================================
 
-au BufNewFile,BufRead *.thor       set filetype=ruby
-au BufNewFile,BufRead Guardfile    set filetype=ruby
-au BufNewFile,BufRead .pryrc       set filetype=ruby
-au BufNewFile,BufRead Vagrantfile  set filetype=ruby
-au BufNewFile,BufRead *.pp         set filetype=ruby
-au BufNewFile,BufRead *.prawn      set filetype=ruby
-au BufNewFile,BufRead Appraisals   set filetype=ruby
-au BufNewFile,BufRead .psqlrc      set filetype=sql
-au BufNewFile,BufRead *.less       set filetype=css
-au BufNewFile,BufRead bash_profile set filetype=sh
-au bufnewfile,bufread Capfile      set filetype=ruby
-au bufnewfile,bufread Gemfile      set filetype=ruby
+au BufEnter .psqlrc      set filetype=sql
+au BufEnter *.less       set filetype=css
+au BufEnter bash_profile set filetype=sh
 
 " Other usefull things
 "================================
 
 au BufWritePost .vimrc so ~/.vimrc " automatically reload vimrc when it's saved
-
-autocmd Filetype gitcommit setlocal spell textwidth=72
