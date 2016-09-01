@@ -474,8 +474,3 @@ cab WQ wq
 au BufEnter .psqlrc      set filetype=sql
 au BufEnter *.less       set filetype=css
 au BufEnter bash_profile set filetype=sh
-
-" Other usefull things
-"================================
-
-au BufWritePost .vimrc so ~/.vimrc " automatically reload vimrc when it's saved
