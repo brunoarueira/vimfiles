@@ -50,36 +50,6 @@ set shell=bash
 " Plugins
 "==========================================
 
-" NERDTree
-nmap <F2> :NERDTreeToggle<CR>
-
-" Tabular
-inoremap <silent> <Bar> <Bar><Esc>:call <SID>align()<CR>a
-
-function! s:align()
-  let p = '^\s*|\s.*\s|\s*$'
-  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
-    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
-    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
-    Tabularize/|/l1
-    normal! 0
-    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
-  endif
-endfunction
-
-nmap <leader>t= :Tabularize /=<CR>
-vmap <leader>t= :Tabularize /=<CR>
-" key => value
-nmap <leader>t> :Tabularize /=><CR>
-vmap <leader>t> :Tabularize /=><CR>
-" key: value
-nmap <leader>t: :Tabularize /:\zs<CR>
-vmap <leader>t: :Tabularize /:\zs<CR>
-" Ruby symbols
-nmap <leader>ts :Tabularize /:/l1c0l0<CR>
-vmap <leader>ts :Tabularize /:/l1c0l0<CR>
-cnoreabbrev Tab Tabularize
-
 " CtrlP
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_working_path_mode = 2
@@ -137,9 +107,6 @@ let g:airline#extensions#branch#displayed_head_limit = 15
 let g:airline#extensions#branch#empty_message = ''
 let g:airline_powerline_fonts = 1
 
-" Bind K to search for the word under cursor
-nnoremap K :Ag "\b<C-R><C-W>\b"<CR>:cw<CR>
-
 " Settings
 "==================================
 
@@ -151,7 +118,6 @@ au FileType xml    set omnifunc=xmlcomplete#CompleteTags
 
 set t_Co=256
 
-" Autoindent with two spaces, always expand tabs
 set backspace=indent,eol,start
 set whichwrap+=<,>,h,l
 set autoindent
@@ -160,22 +126,12 @@ set shiftround
 
 set title
 
-" don’t want to be bother by a popup showing me that there is a single match
-set completeopt=menu
-
-" allow unsaved background buffers and remember marks/undo for them
-set hidden
-
-" display incomplete commands
-set showcmd
-
-" For regular expressions turn magic on
-set magic
-
-" Show matching brackets when text indicator is over them
-set showmatch
-" How many tenths of a second to blink when matching brackets
-set mat=2
+set completeopt=menu " don’t want to be bother by a popup showing me that there is a single match
+set hidden " allow unsaved background buffers and remember marks/undo for them
+set showcmd " display incomplete commands
+set magic " For regular expressions turn magic on
+set showmatch " Show matching brackets when text indicator is over them
+set mat=2 " How many tenths of a second to blink when matching brackets
 
 " No annoying sound on errors
 set noerrorbells
@@ -183,33 +139,25 @@ set visualbell
 set t_vb=
 set tm=500
 
-" Improve vim's scrolling speed
-set ttyfast
-" set ttyscroll=3
+set ttyfast " Improve vim's scrolling speed
 set lazyredraw
 
 " Folding settings
 set foldmethod=manual
-set nofoldenable        " dont fold by default
-
-" Add a bit extra margin to the left
-set foldcolumn=1
+set nofoldenable " dont fold by default
+set foldcolumn=1 " Add a bit extra margin to the left
 
 if !has('nvim')
   set encoding=utf-8 nobomb
 endif
 
-" Use Unix as the standard file type
-set ffs=unix,dos,mac
+set ffs=unix,dos,mac " Use Unix as the standard file type
 
 " Invisible characters
 set listchars=tab:▸\ ,trail:·,eol:¬,nbsp:_,extends:❯,precedes:❮
 
-" Syntax coloring lines that are too long just slows down the world
-set synmaxcol=1200
-
-" Use only 1 space after "." when joining lines instead of 2
-set nojoinspaces
+set synmaxcol=1200 " Syntax coloring lines that are too long just slows down the world
+set nojoinspaces " Use only 1 space after "." when joining lines instead of 2
 
 set wildmode=longest,list
 set wildmenu " enable ctrl-n and ctrl-p to scroll thru matches
@@ -255,12 +203,7 @@ set wrap " Line wrapping on
 set incsearch
 set hlsearch
 
-" Vmap for maintain Visual Mode after shifting > and <
-vmap < <gv
-vmap > >gv
-
-" Ignore case in searches
-set ignorecase
+set ignorecase " Ignore case in searches
 
 " Open splits at right side (and below)
 set splitright
@@ -270,14 +213,6 @@ set splitbelow
 set nobackup
 set nowb
 set noswapfile
-
-" Return to last edit position when opening files (You want this!)
-autocmd BufReadPost *
-     \ if line("'\"") > 0 && line("'\"") <= line("$") |
-     \   exe "normal! g`\"" |
-     \ endif
-" Remember info about open buffers on close
-set viminfo^=%
 
 " Disable to show mode on the last row (show only inside status bar with
 " vim-airline)
@@ -291,11 +226,56 @@ set notimeout
 set timeout
 set timeoutlen=300
 
+" Return to last edit position when opening files (You want this!)
+autocmd BufReadPost *
+     \ if line("'\"") > 0 && line("'\"") <= line("$") |
+     \   exe "normal! g`\"" |
+     \ endif
+" Remember info about open buffers on close
+set viminfo^=%
+
 " As seen on Vimcasts, expand path for the current file
 let mapleader=','
 
 " Shortcuts
 "===================================
+
+" Bind K to search for the word under cursor
+nnoremap K :Ag "\b<C-R><C-W>\b"<CR>:cw<CR>
+
+" NERDTree
+nmap <F2> :NERDTreeToggle<CR>
+
+" Tabular
+inoremap <silent> <Bar> <Bar><Esc>:call <SID>align()<CR>a
+
+function! s:align()
+  let p = '^\s*|\s.*\s|\s*$'
+  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
+    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
+    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
+    Tabularize/|/l1
+    normal! 0
+    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
+  endif
+endfunction
+
+nmap <leader>t= :Tabularize /=<CR>
+vmap <leader>t= :Tabularize /=<CR>
+" key => value
+nmap <leader>t> :Tabularize /=><CR>
+vmap <leader>t> :Tabularize /=><CR>
+" key: value
+nmap <leader>t: :Tabularize /:\zs<CR>
+vmap <leader>t: :Tabularize /:\zs<CR>
+" Ruby symbols
+nmap <leader>ts :Tabularize /:/l1c0l0<CR>
+vmap <leader>ts :Tabularize /:/l1c0l0<CR>
+cnoreabbrev Tab Tabularize
+
+" Vmap for maintain Visual Mode after shifting > and <
+vmap < <gv
+vmap > >gv
 
 map <leader>ew :e <C-R>=expand("%:p:h") . "/" <CR>
 map <leader>es :sp <C-R>=expand("%:p:h") . "/" <CR>
@@ -362,8 +342,7 @@ set guioptions-=m "remove menu bar
 set background=dark
 let base16colorspace=256 " Access colors present in 256 colorspace
 
-" Highlight the line and the column of the current position of cursor
-set cursorline cursorcolumn
+set cursorline cursorcolumn " Highlight the line and the column of the current position of cursor
 
 colorscheme Tomorrow-Night-Eighties
 
@@ -455,10 +434,8 @@ nnoremap <leader>qs :call QuoteSwitcher()<cr>
 " Project Specific vimrc
 "=================================
 
-" allow project-specific vimrc files to be sourced
-set exrc
-" make sure project-specific vimrc files don't do unsafe things
-set secure
+set exrc " allow project-specific vimrc files to be sourced
+set secure " make sure project-specific vimrc files don't do unsafe things
 
 " Aliases
 "=================================
