@@ -349,6 +349,8 @@ colorscheme Tomorrow-Night-Eighties
 " Functions
 "=================================
 
+command! FormatJSON %!jq '.'
+
 map <leader>= :call StripTrailingWhitespaces()<CR>
 map! <leader>= :call StripTrailingWhitespaces()<CR>
 
