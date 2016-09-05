@@ -1,4 +1,6 @@
-au FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd BufNewFile,BufRead *.json set filetype=javascript
+
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 
 " Simple re-format for minified Javascript
 command! UnMinify call UnMinify()
