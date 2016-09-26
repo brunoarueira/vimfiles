@@ -1,8 +1,9 @@
-autocmd BufRead,BufNewFile Guardfile   set filetype=ruby
-autocmd BufRead,BufNewFile .pryrc      set filetype=ruby
-autocmd BufRead,BufNewFile Vagrantfile set filetype=ruby
-autocmd BufRead,BufNewFile Capfile     set filetype=ruby
-autocmd BufRead,BufNewFile Gemfile     set filetype=ruby
+autocmd BufRead,BufNewFile Guardfile            set filetype=ruby
+autocmd BufRead,BufNewFile .pryrc               set filetype=ruby
+autocmd BufRead,BufNewFile Vagrantfile          set filetype=ruby
+autocmd BufRead,BufNewFile Capfile              set filetype=ruby
+autocmd BufRead,BufNewFile Gemfile              set filetype=ruby
+autocmd BufRead,BufNewFile *gemfile*,*.gemfile  set filetype=ruby
 
 autocmd FileType ruby        setlocal shiftwidth=2 tabstop=2 expandtab
 
