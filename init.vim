@@ -40,6 +40,7 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'vim-scripts/matchit.zip'
 Plugin 'vim-scripts/gitignore'
 Plugin 'bogado/file-line'
+Plugin 'elixir-lang/vim-elixir'
 
 call vundle#end()
 
