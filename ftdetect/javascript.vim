@@ -1,6 +1,7 @@
 autocmd BufNewFile,BufRead *.json set filetype=javascript
 
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 expandtab
 
 " Simple re-format for minified Javascript
 command! UnMinify call UnMinify()
