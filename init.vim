@@ -41,6 +41,7 @@ Plugin 'vim-scripts/matchit.zip'
 Plugin 'vim-scripts/gitignore'
 Plugin 'bogado/file-line'
 Plugin 'elixir-lang/vim-elixir'
+Plugin 'mxw/vim-jsx'
 
 call vundle#end()
 
@@ -226,6 +227,11 @@ set formatoptions=qrn1
 set notimeout
 set timeout
 set timeoutlen=300
+
+" True color support
+if has('nvim')
+  set termguicolors
+endif
 
 " Return to last edit position when opening files (You want this!)
 autocmd BufReadPost *
@@ -453,5 +459,4 @@ cab WQ wq
 "================================
 
 au BufEnter .psqlrc      set filetype=sql
-au BufEnter *.less       set filetype=css
 au BufEnter bash_profile set filetype=sh
