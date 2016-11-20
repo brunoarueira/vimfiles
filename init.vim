@@ -47,8 +47,8 @@ call vundle#end()
 
 filetype plugin indent on
 
-source config/general.vimrc
-source config/plugin_configs.vimrc
-source config/shortcuts.vimrc
-source config/theme.vimrc
-source config/functions.vimrc
+source ~/.vim/config/general.vimrc
+source ~/.vim/config/plugin_configs.vimrc
+source ~/.vim/config/shortcuts.vimrc
+source ~/.vim/config/theme.vimrc
+source ~/.vim/config/functions.vimrc
