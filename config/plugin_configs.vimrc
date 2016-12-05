@@ -49,6 +49,7 @@ let g:syntastic_stl_format = ""
 
 let g:syntastic_scss_checkers = ['scss_lint']
 let g:syntastic_javascript_checkers = ['jscs']
+let g:syntastic_ruby_checkers = ['rubocop', 'mri']
 
 " vim-airline
 set laststatus=2
