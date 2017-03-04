@@ -50,7 +50,7 @@ let g:syntastic_stl_format = ""
 let g:syntastic_scss_checkers = ['scss_lint']
 let g:syntastic_javascript_checkers = findfile('.eslintrc', '.;') != '' ? ['eslint'] : ['standard']
 
-let g:syntastic_javascript_eslint_exec = './node_modules/bin/eslint'
+let g:syntastic_javascript_eslint_exe = 'npm run lint --'
 
 " vim-airline
 set laststatus=2
