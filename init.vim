@@ -40,6 +40,7 @@ Plugin 'bogado/file-line'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'mxw/vim-jsx'
 Plugin 'tpope/vim-git'
+Plugin 'jasonshell/vim-svg-indent'
 
 call vundle#end()
 
