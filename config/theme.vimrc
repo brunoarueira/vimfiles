@@ -12,4 +12,4 @@ let base16colorspace=256 " Access colors present in 256 colorspace
 
 set cursorline cursorcolumn " Highlight the line and the column of the current position of cursor
 
-colorscheme Tomorrow-Night-Eighties
+colorscheme base16-eighties

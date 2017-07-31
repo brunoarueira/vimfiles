@@ -1,3 +1,10 @@
+" Completion
+set omnifunc=syntaxcomplete#Complete
+
+let g:rubycomplete_buffer_loading = 1
+let g:rubycomplete_rails = 1
+let g:rubycomplete_classes_in_global = 1
+
 " Convert Ruby 1.8 to 1.9 Hash Syntax - http://robots.thoughtbot.com/convert-ruby-1-8-to-1-9-hash-syntax
 function! ConvertRubyHashSyntax()
   %s/:\([^ ]*\)\(\s*\)=>/\1:/g
