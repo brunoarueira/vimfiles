@@ -45,7 +45,7 @@ set ffs=unix,dos,mac " Use Unix as the standard file type
 " Invisible characters
 set listchars=tab:▸\ ,trail:·,eol:¬,nbsp:_,extends:❯,precedes:❮
 
-set synmaxcol=1200 " Syntax coloring lines that are too long just slows down the world
+set synmaxcol=2048 " Syntax coloring lines that are too long just slows down the world
 set nojoinspaces " Use only 1 space after "." when joining lines instead of 2
 
 set wildmode=longest,list
