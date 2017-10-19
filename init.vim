@@ -41,6 +41,7 @@ Plugin 'elixir-lang/vim-elixir'
 Plugin 'mxw/vim-jsx'
 Plugin 'tpope/vim-git'
 Plugin 'jasonshell/vim-svg-indent'
+Plugin 'terryma/vim-multiple-cursors'
 
 call vundle#end()
 
