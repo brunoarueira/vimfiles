@@ -90,3 +90,7 @@ map <C-left> <c-w>h
 " Move between tabs
 nnoremap <F3> gt
 nnoremap <F4> gT
+
+" fzf
+nmap <silent> <Leader>f :Files<CR>
+nmap <silent> <Leader>b :Buffers<CR>

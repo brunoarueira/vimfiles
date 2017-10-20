@@ -8,6 +8,7 @@ syntax sync fromstart
 filetype off
 
 set rtp+=~/.vim/bundle/vundle/
+set rtp+=/usr/local/opt/fzf
 call vundle#begin()
 
 Plugin 'gmarik/vundle'
@@ -24,7 +25,6 @@ Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
 Plugin 'int3/vim-extradite'
-Plugin 'kien/ctrlp.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plugin 'scrooloose/nerdtree'
@@ -42,6 +42,7 @@ Plugin 'mxw/vim-jsx'
 Plugin 'tpope/vim-git'
 Plugin 'jasonshell/vim-svg-indent'
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'junegunn/fzf.vim'
 
 call vundle#end()
 
