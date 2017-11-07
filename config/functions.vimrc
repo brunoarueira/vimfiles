@@ -63,4 +63,5 @@ function! s:ToggleBeginOrBracket()
     endif
   endif
 endfunction
-nnoremap <buffer> <leader>[ :call <sid>ToggleBeginOrBracket()<CR>
+:map <leader>[ :call <sid>ToggleBeginOrBracket()<CR>
+:map! <leader>[ :call <sid>ToggleBeginOrBracket()<CR>
