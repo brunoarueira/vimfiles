@@ -88,8 +88,8 @@ map <C-right> <c-w>l
 map <C-left> <c-w>h
 
 " Move between tabs
-nnoremap <F3> gt
-nnoremap <F4> gT
+nnoremap <Tab> gt
+nnoremap <S-Tab> gT
 
 " fzf
 nmap <silent> <Leader>f :Files<CR>
