@@ -17,6 +17,7 @@ Plugin 'ervandew/supertab'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'ayu-theme/ayu-vim'
+Plugin 'ryanoasis/vim-devicons'
 Plugin 'danro/rename.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'gorkunov/smartpairs.vim'
@@ -49,8 +50,8 @@ call vundle#end()
 filetype plugin indent on
 
 source ~/.vim/config/general.vimrc
+source ~/.vim/config/theme.vimrc
 source ~/.vim/config/plugin_configs.vimrc
 source ~/.vim/config/shortcuts.vimrc
-source ~/.vim/config/theme.vimrc
 source ~/.vim/config/filetypes.vimrc
 source ~/.vim/config/functions.vimrc

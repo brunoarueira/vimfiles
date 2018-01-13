@@ -9,21 +9,16 @@ au FileType html   set omnifunc=htmlcomplete#CompleteTags
 au FileType css    set omnifunc=csscomplete#CompleteCSS
 au FileType xml    set omnifunc=xmlcomplete#CompleteTags
 
-set t_Co=256
-
 set backspace=indent,eol,start
 set whichwrap+=<,>,h,l
 set autoindent
 set smartindent
 set shiftround
 
-set title
-
 set completeopt=menu " don’t want to be bother by a popup showing me that there is a single match
 set hidden " allow unsaved background buffers and remember marks/undo for them
 set showcmd " display incomplete commands
 set magic " For regular expressions turn magic on
-set showmatch " Show matching brackets when text indicator is over them
 set mat=2 " How many tenths of a second to blink when matching brackets
 
 " No annoying sound on errors
@@ -35,18 +30,7 @@ set tm=500
 set ttyfast " Improve vim's scrolling speed
 set lazyredraw
 
-" Folding settings
-set foldmethod=manual
-set nofoldenable " dont fold by default
-set foldcolumn=1 " Add a bit extra margin to the left
-
 set ffs=unix,dos,mac " Use Unix as the standard file type
-
-" Invisible characters
-set listchars=tab:▸\ ,trail:·,eol:¬,nbsp:_,extends:❯,precedes:❮
-
-set synmaxcol=2048 " Syntax coloring lines that are too long just slows down the world
-set nojoinspaces " Use only 1 space after "." when joining lines instead of 2
 
 set wildmode=longest,list
 set wildmenu " enable ctrl-n and ctrl-p to scroll thru matches
@@ -72,14 +56,6 @@ set wildignore+=*.swp,*~,._*
 " Disable osx index files
 set wildignore+=.DS_Store
 
-set linespace=0
-
-" Vertical / horizontal scroll off settings
-set scrolloff=3
-set sidescrolloff=7
-set sidescroll=1
-
-set cf " Enable error files & error jumping.
 set clipboard+=unnamed " Yanks go on clipboard instead.
 set history=256 " Number of things to remember in history.
 set autowrite " Writes on make/shell commands
@@ -87,10 +63,6 @@ set ruler " Ruler on
 set nu " Line numbers on
 set relativenumber
 set wrap " Line wrapping on
-
-" Highlight all search results
-set incsearch
-set hlsearch
 
 set ignorecase " Ignore case in searches
 
@@ -103,10 +75,6 @@ set nobackup
 set nowb
 set noswapfile
 
-" Disable to show mode on the last row (show only inside status bar with
-" vim-airline)
-set noshowmode
-
 set textwidth=79
 set formatoptions=qrn1
 
@@ -117,11 +85,6 @@ set timeoutlen=300
 
 if !has('nvim')
   set encoding=utf-8 nobomb
-endif
-
-" True color support
-if has('nvim')
-  set termguicolors
 endif
 
 " Return to last edit position when opening files (You want this!)
