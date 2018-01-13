@@ -33,7 +33,7 @@ let g:syntastic_javascript_eslint_exe = 'eslint_d'
 
 " vim-airline
 set laststatus=2
-let g:airline_theme='tomorrow'
+let g:airline_theme='ayu'
 let g:airline_inactive_collapse=1
 let g:airline#extensions#branch#displayed_head_limit = 15
 let g:airline#extensions#branch#empty_message = ''
