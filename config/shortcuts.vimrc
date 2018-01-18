@@ -94,3 +94,5 @@ nnoremap <S-Tab> gT
 " fzf
 nmap <silent> <Leader>f :Files<CR>
 nmap <silent> <Leader>b :Buffers<CR>
+
+nmap <leader>rf :s/\v\ze(\(\w+(\.\w+)*)@<!\./\r  /g
