@@ -44,20 +44,22 @@ let g:airline_theme='bubblegum'
 set laststatus=2
 let g:airline#extensions#branch#enabled=1
 
+if has('nvim')
 " define the set of text to display for each mode.  >
 let g:airline_mode_map = {
-   \ '__' : '-',
-   \ 'n'  : 'N',
-   \ 'i'  : 'I ',
-   \ 'R'  : 'R',
-   \ 'c'  : 'C',
-   \ 'v'  : 'ಠ',
-   \ 'V'  : 'V-LINE',
-   \ 'x' : 'V-BLOCK',
-   \ 's'  : 'S',
-   \ 'S'  : 'S',
-   \ '' : 'S-BLOCK',
-   \ }
+\ '__' : '-',
+\ 'n'  : 'N',
+\ 'i'  : 'I ',
+\ 'R'  : 'R',
+\ 'c'  : 'C',
+\ 'v'  : 'ಠ',
+\ 'V'  : 'V-LINE',
+\ 'x' : 'V-BLOCK',
+\ 's'  : 'S',
+\ 'S'  : 'S',
+\ '' : 'S-BLOCK',
+\ }
+end
 
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:DevIconsEnableFoldersOpenClose = 1
