@@ -45,6 +45,7 @@ Plugin 'jasonshell/vim-svg-indent'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'junegunn/fzf.vim'
 Plugin 'victormours/ruby-memoize.vim'
+Plugin 'jparise/vim-graphql'
 
 call vundle#end()
 
