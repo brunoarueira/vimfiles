@@ -7,7 +7,7 @@ syntax enable
 syntax sync fromstart
 filetype off
 
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/Vundle.vim/
 set rtp+=/usr/local/opt/fzf
 call vundle#begin()
 
@@ -44,6 +44,7 @@ Plugin 'tpope/vim-git'
 Plugin 'jasonshell/vim-svg-indent'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'junegunn/fzf.vim'
+Plugin 'victormours/ruby-memoize.vim'
 
 call vundle#end()
 
