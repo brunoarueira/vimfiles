@@ -11,7 +11,7 @@ set rtp+=~/.vim/bundle/Vundle.vim/
 set rtp+=/usr/local/opt/fzf
 call vundle#begin()
 
-Plugin 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'ervandew/supertab'
 Plugin 'vim-airline/vim-airline'
@@ -29,23 +29,25 @@ Plugin 'int3/vim-extradite'
 Plugin 'pangloss/vim-javascript'
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
 Plugin 'ap/vim-css-color'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-git'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'vim-scripts/matchit.zip'
 Plugin 'vim-scripts/gitignore'
 Plugin 'bogado/file-line'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'mxw/vim-jsx'
-Plugin 'tpope/vim-git'
 Plugin 'jasonshell/vim-svg-indent'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'junegunn/fzf.vim'
 Plugin 'victormours/ruby-memoize.vim'
 Plugin 'jparise/vim-graphql'
+Plugin 'mattn/emmet-vim'
+Plugin 'w0rp/ale'
+Plugin 'sourcegraph/javascript-typescript-langserver', {'for': ['javascript'], 'do': 'npm install && npm run build'}
 
 call vundle#end()
 

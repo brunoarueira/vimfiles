@@ -34,6 +34,10 @@ function! CollapseMultipleBlankLines()
 :map <leader>- :call CollapseMultipleBlankLines()<CR>
 :map! <leader>- :call CollapseMultipleBlankLines()<CR>
 
+function! CssSort()
+  g/{$/+,/^}/-sort
+:endfunction
+
 " Invert lines
 function! InvertLines()
   g/^/m0

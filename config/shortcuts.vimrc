@@ -96,3 +96,9 @@ nmap <silent> <Leader>f :Files<CR>
 nmap <silent> <Leader>b :Buffers<CR>
 
 nmap <leader>rf :s/\v\ze(\(\w+(\.\w+)*)@<!\./\r  /g
+
+" puts
+nnoremap <Leader>pt oputs "#" * 60<C-M>puts "<C-R>=expand("%") . ':' . line(".")<CR>"<C-M>puts "*" * 60<esc>
+
+" all the users that changed the current file
+map <F3> :!git shortlog -n -s %<cr>
