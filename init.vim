@@ -8,15 +8,21 @@ syntax sync fromstart
 filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim/
-set rtp+=/usr/local/opt/fzf
+
+let uname = substitute(system('uname'), '\n', '', '')
+
+if uname == 'Linux'
+  set rtp+=/home/linuxbrew/.linuxbrew/opt/fzf
+else
+  set rtp+=/usr/local/opt/fzf
+endif
+
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'ervandew/supertab'
 Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'ayu-theme/ayu-vim'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'danro/rename.vim'
 Plugin 'godlygeek/tabular'
@@ -38,7 +44,6 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'vim-scripts/matchit.zip'
 Plugin 'vim-scripts/gitignore'
 Plugin 'bogado/file-line'
-Plugin 'elixir-lang/vim-elixir'
 Plugin 'mxw/vim-jsx'
 Plugin 'jasonshell/vim-svg-indent'
 Plugin 'terryma/vim-multiple-cursors'
@@ -48,14 +53,21 @@ Plugin 'jparise/vim-graphql'
 Plugin 'mattn/emmet-vim'
 Plugin 'w0rp/ale'
 Plugin 'sourcegraph/javascript-typescript-langserver', {'for': ['javascript'], 'do': 'npm install && npm run build'}
+Plugin 'arcticicestudio/nord-vim'
+Plugin 'rust-lang/rust.vim'
+Plugin 'junegunn/goyo.vim'
+Plugin 'junegunn/limelight.vim'
+" JSON front matter highlight plugin
+Plugin 'elzr/vim-json'
+Plugin 'plasticboy/vim-markdown'
 
 call vundle#end()
 
 filetype plugin indent on
 
-source ~/.vim/config/general.vimrc
-source ~/.vim/config/theme.vimrc
-source ~/.vim/config/plugin_configs.vimrc
-source ~/.vim/config/shortcuts.vimrc
-source ~/.vim/config/filetypes.vimrc
-source ~/.vim/config/functions.vimrc
+source ~/.config/nvim/config/general.vimrc
+source ~/.config/nvim/config/theme.vimrc
+source ~/.config/nvim/config/plugin_configs.vimrc
+source ~/.config/nvim/config/shortcuts.vimrc
+source ~/.config/nvim/config/filetypes.vimrc
+source ~/.config/nvim/config/functions.vimrc

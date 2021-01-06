@@ -46,5 +46,4 @@ set noshowmode
 set encoding=utf-8
 
 set fillchars=""
-let ayucolor="mirage"
-colorscheme ayu
+colorscheme nord
