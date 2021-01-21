@@ -47,6 +47,7 @@ Plugin 'bogado/file-line'
 Plugin 'mxw/vim-jsx'
 Plugin 'jasonshell/vim-svg-indent'
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plugin 'junegunn/fzf.vim'
 Plugin 'victormours/ruby-memoize.vim'
 Plugin 'jparise/vim-graphql'
