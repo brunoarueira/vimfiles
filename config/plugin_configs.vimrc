@@ -40,9 +40,9 @@ let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_linters = {
-	\ 'javascript': ['eslint'],
-	\ 'ruby': ['rubocop']
-	\}
+\ 'javascript': ['eslint'],
+\ 'ruby': ['rubocop']
+\}
 let g:ale_completion_enabled = 1
 nnoremap <silent> K :ALEHover<CR>
 nnoremap <silent> gd :ALEGoToDefinition<CR>
@@ -53,6 +53,7 @@ autocmd! User GoyoLeave Limelight!
 " vim-markdown
 " disable header folding
 let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_fenced_languages = ['css', 'erb=eruby', 'javascript', 'js=javascript', 'json=javascript', 'ruby', 'sass', 'xml', 'shell=sh']
 
 " do not use conceal feature, the implementation is not so good
 let g:vim_markdown_conceal = 0

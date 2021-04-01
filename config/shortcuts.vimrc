@@ -2,7 +2,7 @@
 "===================================
 
 " Bind K to search for the word under cursor
-nnoremap K :Ag "\b<C-R><C-W>\b"<CR>:cw<CR>
+nnoremap K :Rg "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 " NERDTree
 nmap <F2> :NERDTreeToggle<CR>
@@ -102,3 +102,8 @@ nnoremap <Leader>pt oputs "#" * 60<C-M>puts "<C-R>=expand("%") . ':' . line(".")
 
 " all the users that changed the current file
 map <F3> :!git shortlog -n -s %<cr>
+
+" vim-fugitive
+nnoremap <leader>gd :Gvdiffsplit!<CR>
+nnoremap gdh :diffget //2<CR>
+nnoremap gdl :diffget //3<CR>
