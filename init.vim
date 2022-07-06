@@ -35,14 +35,16 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plugin 'scrooloose/nerdtree'
 Plugin 'ap/vim-css-color'
 Plugin 'tomtom/tcomment_vim'
+Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-endwise'
-Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-git'
+Plugin 'tpope/vim-rails'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'vim-scripts/matchit.zip'
 Plugin 'vim-scripts/gitignore'
 Plugin 'bogado/file-line'
-Plugin 'mxw/vim-jsx'
+Plugin 'MaxMEllon/vim-jsx-pretty'
 Plugin 'jasonshell/vim-svg-indent'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -60,7 +62,6 @@ Plugin 'junegunn/limelight.vim'
 Plugin 'elzr/vim-json'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'editorconfig/editorconfig-vim'
-Plugin 'tpope/vim-fugitive'
 
 call vundle#end()
 
