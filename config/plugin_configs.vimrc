@@ -41,7 +41,8 @@ let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_linters = {
 \ 'javascript': ['eslint'],
-\ 'ruby': ['rubocop']
+\ 'ruby': ['rubocop'],
+\ 'yaml': ['yamllint']
 \}
 let g:ale_completion_enabled = 1
 nnoremap <silent> K :ALEHover<CR>
