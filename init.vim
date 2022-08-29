@@ -56,8 +56,6 @@ Plugin 'w0rp/ale'
 Plugin 'sourcegraph/javascript-typescript-langserver', {'for': ['javascript'], 'do': 'npm install && npm run build'}
 Plugin 'arcticicestudio/nord-vim'
 Plugin 'rust-lang/rust.vim'
-Plugin 'junegunn/goyo.vim'
-Plugin 'junegunn/limelight.vim'
 " JSON front matter highlight plugin
 Plugin 'elzr/vim-json'
 Plugin 'plasticboy/vim-markdown'
