@@ -131,3 +131,6 @@ endfunction
 augroup BWCCreateDir
   autocmd!
   autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
+
+" Change program used by :grep
+set grepprg=rg\ --vimgrep\ --smart-case\ --follow
