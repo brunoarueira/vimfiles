@@ -23,7 +23,6 @@ return require('packer').startup(function(use)
   use 'tpope/vim-git'
   use 'tpope/vim-rails'
   use 'vim-ruby/vim-ruby'
-  use 'vim-scripts/matchit.zip'
   use 'vim-scripts/gitignore'
   use 'bogado/file-line'
   use 'MaxMEllon/vim-jsx-pretty'
