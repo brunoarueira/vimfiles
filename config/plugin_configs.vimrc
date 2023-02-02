@@ -74,3 +74,4 @@ let g:vim_markdown_json_frontmatter = 1  " for JSON format
 if has('nvim')
   au FileType fzf set laststatus& laststatus=0 | au BufLeave <buffer> set laststatus&
 endif
+
