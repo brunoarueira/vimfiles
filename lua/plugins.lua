@@ -1,6 +1,30 @@
+local execute = vim.api.nvim_command
+local fn = vim.fn
+local install_path = fn.stdpath('data') .. '/site/pack/packer/opt/packer.nvim'
+
+if fn.empty(fn.glob(install_path)) > 0 then
+  execute('!git clone wbthomason/packer.nvim' .. install_path)
+  execute 'packadd packer.nvim'
+end
+
 vim.cmd [[packadd packer.nvim]]
 
-return require('packer').startup(function(use)
+vim.cmd 'autocmd BufWritePost plugins.lua PackerCompile' -- Auto compile when there are changes to plugins.lua
+
+local packer = require('packer')
+
+packer.init({
+  git = {
+    clone_timeout = 300
+  },
+  profile = {
+    enable = true
+  }
+})
+
+return packer.startup(function(use)
+  use { 'wbthomason/packer.nvim', opt = true }
+
   use 'ervandew/supertab'
   use 'vim-airline/vim-airline'
   use 'ryanoasis/vim-devicons'
