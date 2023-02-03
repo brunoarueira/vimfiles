@@ -1,3 +1,4 @@
 bundle/*
 .netrwhist
 doc/tags
+plugin/packer_compiled.lua
