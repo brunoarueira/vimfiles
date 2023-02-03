@@ -71,5 +71,4 @@ return packer.startup(function(use)
   -- JSON front matter highlight use
   use 'elzr/vim-json'
   use 'plasticboy/vim-markdown'
-  use 'editorconfig/editorconfig-vim'
 end)
