@@ -13,7 +13,9 @@ vim.cmd([[
   filetype plugin indent on
 
   source ~/.config/nvim/config/general.vimrc
-  source ~/.config/nvim/config/theme.vimrc
+
+  lua require('brunoarueira.theme')
+
   source ~/.config/nvim/config/plugin_configs.vimrc
   source ~/.config/nvim/config/shortcuts.vimrc
   source ~/.config/nvim/config/filetypes.vimrc
