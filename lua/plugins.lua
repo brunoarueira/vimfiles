@@ -69,6 +69,13 @@ return packer.startup({
       run = 'npm install && npm run build'
     }
 
+    use {
+      'lewis6991/gitsigns.nvim',
+      config = function()
+        require('gitsigns').setup()
+      end
+    }
+
     use 'arcticicestudio/nord-vim'
     use 'rust-lang/rust.vim'
 
