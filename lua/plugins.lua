@@ -38,7 +38,6 @@ return packer.startup({
     use 'tomtom/tlib_vim'
     use 'MarcWeber/vim-addon-mw-utils'
     use 'int3/vim-extradite'
-    use 'pangloss/vim-javascript'
 
     use { 'rstacruz/sparkup', rtp = 'vim/' }
 
@@ -53,13 +52,10 @@ return packer.startup({
     use 'vim-ruby/vim-ruby'
     use 'vim-scripts/gitignore'
     use 'bogado/file-line'
-    use 'MaxMEllon/vim-jsx-pretty'
-    use 'jasonshell/vim-svg-indent'
     use 'terryma/vim-multiple-cursors'
     use 'junegunn/fzf'
     use 'junegunn/fzf.vim'
     use 'victormours/ruby-memoize.vim'
-    use 'jparise/vim-graphql'
     use 'mattn/emmet-vim'
     use 'w0rp/ale'
 
@@ -73,6 +69,24 @@ return packer.startup({
       'lewis6991/gitsigns.nvim',
       config = function()
         require('gitsigns').setup()
+      end
+    }
+
+    use {
+      'nvim-treesitter/nvim-treesitter',
+      run = ':TSUpdate',
+      config = function()
+        require('nvim-treesitter.configs').setup({
+          ensure_installed = { 'ruby', 'javascript', 'vim', 'rust', 'yaml', 'lua' },
+          highlight = {
+            enable = true,
+
+            additional_vim_regex_highlighting = false,
+          },
+          indent = {
+            enable = true
+          }
+        })
       end
     }
 
