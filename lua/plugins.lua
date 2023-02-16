@@ -56,7 +56,7 @@ return packer.startup({
     use 'MaxMEllon/vim-jsx-pretty'
     use 'jasonshell/vim-svg-indent'
     use 'terryma/vim-multiple-cursors'
-    use '/usr/local/opt/fzf'
+    use 'junegunn/fzf'
     use 'junegunn/fzf.vim'
     use 'victormours/ruby-memoize.vim'
     use 'jparise/vim-graphql'
