@@ -3,20 +3,12 @@
 
 set shell=bash
 
-" Completion
-au FileType python set omnifunc=pythoncomplete#Complete
-au FileType html   set omnifunc=htmlcomplete#CompleteTags
-au FileType css    set omnifunc=csscomplete#CompleteCSS
-au FileType xml    set omnifunc=xmlcomplete#CompleteTags
-
 set backspace=indent,eol,start
 set whichwrap+=<,>,h,l
 set autoindent
 set smartindent
 set shiftround
 
-set completeopt=menu " don’t want to be bother by a popup showing me that there is a single match
-set hidden " allow unsaved background buffers and remember marks/undo for them
 set showcmd " display incomplete commands
 set magic " For regular expressions turn magic on
 set mat=2 " How many tenths of a second to blink when matching brackets
