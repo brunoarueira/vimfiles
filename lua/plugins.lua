@@ -42,7 +42,6 @@ return packer.startup({
     use { 'rstacruz/sparkup', rtp = 'vim/' }
 
     use 'scrooloose/nerdtree'
-    use 'ap/vim-css-color'
     use 'tomtom/tcomment_vim'
     use 'tpope/vim-abolish'
     use 'tpope/vim-endwise'
@@ -57,6 +56,13 @@ return packer.startup({
     use 'junegunn/fzf.vim'
     use 'victormours/ruby-memoize.vim'
     use 'mattn/emmet-vim'
+
+    use {
+      'NvChad/nvim-colorizer.lua',
+      config = function ()
+        require('colorizer').setup()
+      end
+    }
 
     use {
       'sourcegraph/javascript-typescript-langserver',
