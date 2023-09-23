@@ -1,5 +1,3 @@
-set omnifunc=javascriptcomplete#CompleteJS
-
 " Simple re-format for minified Javascript
 command! UnMinify call UnMinify()
 function! UnMinify()
