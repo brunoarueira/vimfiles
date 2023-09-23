@@ -16,6 +16,8 @@ opt.cf = true
 opt.incsearch = true
 opt.hlsearch = true
 opt.fillchars = ""
+opt.cursorline = true
+opt.cursorcolumn = true
 
 -- cmd
 cmd.colorscheme('nord')
@@ -28,5 +30,3 @@ api.nvim_create_autocmd("TextYankPost", {
 		vim.highlight.on_yank({ higroup = "IncSearch", timeout = 100 })
 	end,
 })
-
-
