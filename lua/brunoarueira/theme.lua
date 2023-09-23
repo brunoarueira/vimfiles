@@ -17,7 +17,6 @@ opt.incsearch = true
 opt.hlsearch = true
 opt.fillchars = ""
 opt.cursorline = true
-opt.cursorcolumn = true
 
 -- cmd
 cmd.colorscheme('nord')
