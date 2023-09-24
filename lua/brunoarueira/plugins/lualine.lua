@@ -7,42 +7,24 @@ end
 require('brunoarueira.helpers')
 
 local icons = require('brunoarueira.icons')
+local colors = require('brunoarueira.colors')
 
-local colors = {
-  grey = '#2E3440',
-  grey_two = '#3B4252',
-  grey_three = '#434C5E',
-  grey_four = '#4C566A',
-  grey_five = '#616E88',
-  grey_six = '#D8DEE9',
-  ice = '#E5E9F0',
-  ice_two = '#ECEFF4',
-  alternative_green = '#8FBCBB',
-  cyan = '#88C0D0',
-  blue = '#81A1C1',
-  blue_two = '#5E81AC',
-  red = '#BF616A',
-  orange = '#D08770',
-  yellow = '#EBCB8B',
-  light_green = '#A3BE8C',
-  pink = '#B48EAD'
-}
 local theme = {
   normal = {
-    a = { fg = colors.grey, bg = colors.cyan },
-    b = { fg = colors.cyan, bg = colors.grey },
-    c = { fg = colors.cyan, bg = colors.grey },
-    z = { fg = colors.cyan, bg = colors.grey },
+    a = { fg = colors.darkblue, bg = colors.lightblue },
+    b = { fg = colors.lightblue, bg = colors.darkblue },
+    c = { fg = colors.lightblue, bg = colors.darkblue },
+    z = { fg = colors.lightblue, bg = colors.darkblue },
   },
 
   insert = {
-    a = { fg = colors.grey, bg = colors.cyan },
-    z = { fg = colors.cyan, bg = colors.grey }
+    a = { fg = colors.darkblue, bg = colors.lightblue },
+    z = { fg = colors.lightblue, bg = colors.darkblue }
   },
-  visual = { a = { fg = colors.grey, bg = colors.cyan } },
+  visual = { a = { fg = colors.darkblue, bg = colors.lightblue } },
   replace = {
-    a = { fg = colors.grey, bg = colors.red },
-    z = { fg = colors.grey, bg = colors.red }
+    a = { fg = colors.darkblue, bg = colors.red },
+    z = { fg = colors.darkblue, bg = colors.red }
   }
 }
 
@@ -55,7 +37,7 @@ lualine.setup({
     disabled_filetypes = {}
   },
   sections = {
-    lualine_a = { { 'mode', fmt = function(res) return res:sub(1,1) end } },
+    lualine_a = { { 'mode', fmt = function(res) return res:sub(1, 1) end } },
     lualine_b = { { 'filename', file_status = true, path = 0 } },
     lualine_c = {
       {
@@ -64,7 +46,7 @@ lualine.setup({
           local gs = git_status()
 
           if gs == 'd' then
-            return { fg = colors.cyan }
+            return { fg = colors.lightblue }
           elseif gs == 'm' then
             return { fg = colors.red }
           end
