@@ -10,6 +10,8 @@ if (not status) then
   return
 end
 
+local api, diagnostic, lsp = vim.api, vim.diagnostic, vim.lsp
+
 local cmp = require('cmp')
 local luasnip = require('luasnip')
 local lspkind = require('lspkind')
@@ -48,10 +50,10 @@ lspkind.init({
 })
 
 local has_words_before = function()
-  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  local line, col = unpack(api.nvim_win_get_cursor(0))
 
   return col ~= 0
-      and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+      and api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
 
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
@@ -100,7 +102,7 @@ cmp.setup({
       if cmp.visible() then
         cmp.select_prev_item()
       elseif luasnip.jumpable(-1) then
-        vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-jump-prev', true, true, true), '')
+        vim.fn.feedkeys(api.nvim_replace_termcodes('<Plug>luasnip-jump-prev', true, true, true), '')
       else
         fallback()
       end
@@ -135,18 +137,6 @@ cmp.setup({
   }
 })
 
-local border_opts = {
-  border = { { "╭" }, { "─" }, { "╮" }, { "│" }, { "╯" }, { "─" }, { "╰" }, { "│" } },
-  winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:CmpSel,Search:None,NormalFloat:Normal",
-  scrollbar = false,
-}
-
-vim.diagnostic.config({
-  float = border_opts,
-})
-
-vim.opt.completeopt = { 'menuone', 'noinsert', 'noselect' }
-
 vim.cmd [[
   highlight! default link CmpItemKind CmpItemMenuDefault
 ]]
@@ -179,15 +169,15 @@ lsp_zero.set_server_config({
 lsp_zero.on_attach(function(client, bufnr)
   local opts = { buffer = bufnr, remap = false }
 
-  vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
+  vim.keymap.set("n", "gd", function() lsp.buf.definition() end, opts)
 
   -- format on save
   if client.server_capabilities.documentFormattingProvider then
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      group = vim.api.nvim_create_augroup("Format", { clear = true }),
+    api.nvim_create_autocmd("BufWritePre", {
+      group = api.nvim_create_augroup("Format", { clear = true }),
       buffer = bufnr,
       callback = function()
-        vim.lsp.buf.format()
+        lsp.buf.format()
       end
     })
   end
@@ -237,31 +227,36 @@ lspconfig.lua_ls.setup({
     Lua = {
       diagnostics = {
         -- Get the language server to recognize the `vim` global
-        globals = { 'vim' },
+        -- globals = { 'vim' },
       }
     }
   }
 })
 
-vim.diagnostic.config({
+local float_options = {
+  source = 'if_many',
+  border = { { "╭" }, { "─" }, { "╮" }, { "│" }, { "╯" }, { "─" }, { "╰" }, { "│" } },
+  winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:CmpSel,Search:None,NormalFloat:Normal",
+  scrollbar = false,
+}
+
+diagnostic.config({
   virtual_text = false,
   severity_sort = true,
-  float = {
-    source = 'if_many'
-  },
+  float = float_options,
 })
 
 -- Function to check if a floating dialog exists and if not
 -- then check for diagnostics under the cursor
 function OpenDiagnosticIfNoFloat()
-  for _, winid in pairs(vim.api.nvim_tabpage_list_wins(0)) do
-    if vim.api.nvim_win_get_config(winid).zindex then
+  for _, winid in pairs(api.nvim_tabpage_list_wins(0)) do
+    if api.nvim_win_get_config(winid).zindex then
       return
     end
   end
 
   -- THIS IS FOR BUILTIN LSP
-  vim.diagnostic.open_float(0, {
+  diagnostic.open_float(0, {
     scope = "cursor",
     focusable = false,
     close_events = {
@@ -275,8 +270,8 @@ function OpenDiagnosticIfNoFloat()
 end
 
 -- Show diagnostics under the cursor when holding position
-vim.api.nvim_create_augroup("lsp_diagnostics_hold", { clear = true })
-vim.api.nvim_create_autocmd({ "CursorHold" }, {
+api.nvim_create_augroup("lsp_diagnostics_hold", { clear = true })
+api.nvim_create_autocmd({ "CursorHold" }, {
   pattern = "*",
   command = "lua OpenDiagnosticIfNoFloat()",
   group = "lsp_diagnostics_hold",

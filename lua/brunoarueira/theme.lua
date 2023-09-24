@@ -11,6 +11,7 @@ o.formatoptions = 'cqrnj'
 o.termguicolors = true
 
 -- opt
+opt.completeopt = { 'menuone', 'noinsert', 'noselect' }
 opt.showmode = false
 opt.sidescroll = 1
 opt.cf = true
