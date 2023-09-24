@@ -4,7 +4,6 @@ local api, o, cmd, highlight, opt = vim.api, vim.o, vim.cmd, vim.highlight, vim.
 o.hidden = true
 o.emoji = true
 o.signcolumn = 'yes:1'
-o.completeopt = 'menu,menuone,noselect'
 o.shortmess = 'filnxtToOFc' -- Avoid showing extra messages when using completion
 o.formatoptions = 'cqrnj'
 o.termguicolors = true

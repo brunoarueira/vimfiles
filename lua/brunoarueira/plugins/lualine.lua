@@ -1,4 +1,12 @@
+local status, lualine = pcall(require, 'lualine')
+
+if (not status) then
+  return
+end
+
 require('brunoarueira.helpers')
+
+local icons = require('brunoarueira.icons')
 
 local colors = {
   grey = '#2E3440',
@@ -38,21 +46,17 @@ local theme = {
   }
 }
 
-require('lualine').setup({
+lualine.setup({
   options = {
     theme = theme,
+    icons_enabled = true,
     component_separators = '',
     section_separators = { left = '', right = '' },
-    ignore_focus = {},
-    always_divide_middle = true,
-    globalstatus = false,
-    refresh = {
-      statusline = 1000
-    }
+    disabled_filetypes = {}
   },
   sections = {
     lualine_a = { { 'mode', fmt = function(res) return res:sub(1,1) end } },
-    lualine_b = { 'filename' },
+    lualine_b = { { 'filename', file_status = true, path = 0 } },
     lualine_c = {
       {
         'branch',
@@ -67,22 +71,38 @@ require('lualine').setup({
         end
       },
     },
-    lualine_x = {},
+    lualine_x = {
+      {
+        'diagnostics',
+        sources = {
+          'nvim_diagnostic'
+        },
+        symbols = icons
+      },
+      'encoding',
+      'filetype'
+    },
     lualine_y = {
       {
         'fileformat',
         icons_enabled = true
-      },
-      'filetype'
+      }
     },
     lualine_z = { { 'location', padding = { left = 0 } } }
   },
   inactive_sections = {
     lualine_a = {},
     lualine_b = {},
-    lualine_c = { 'filename' },
+    lualine_c = {
+      {
+        'filename',
+        file_status = true,
+        path = 1
+      }
+    },
     lualine_x = { 'location' },
     lualine_y = {},
     lualine_z = {}
-  }
+  },
+  extensions = {}
 })

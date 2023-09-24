@@ -12,6 +12,8 @@ vim.cmd([[
 
   filetype plugin indent on
 
+  lua require('basic')
+
   source ~/.config/nvim/config/general.vimrc
 
   lua require('brunoarueira.theme')
