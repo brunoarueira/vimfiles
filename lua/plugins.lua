@@ -55,7 +55,7 @@ return packer.startup({
 
     use {
       'NvChad/nvim-colorizer.lua',
-      config = function ()
+      config = function()
         require('colorizer').setup()
       end
     }
@@ -83,7 +83,12 @@ return packer.startup({
 
     -- JSON front matter highlight use
     use 'elzr/vim-json'
-    use 'plasticboy/vim-markdown'
+    use {
+      'ellisonleao/glow.nvim',
+      config = function()
+        require('glow').setup()
+      end
+    }
 
     use 'nvim-lua/plenary.nvim'
 

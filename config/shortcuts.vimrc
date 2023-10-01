@@ -8,18 +8,6 @@ nnoremap <silent> <Leader>s :Rg<CR>
 nmap <F2> :NERDTreeToggle<CR>
 
 " Tabular
-inoremap <silent> <Bar> <Bar><Esc>:call <SID>align()<CR>a
-
-function! s:align()
-  let p = '^\s*|\s.*\s|\s*$'
-  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
-    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
-    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
-    Tabularize/|/l1
-    normal! 0
-    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
-  endif
-endfunction
 
 nmap <leader>t= :Tabularize /=<CR>
 vmap <leader>t= :Tabularize /=<CR>
@@ -33,6 +21,8 @@ vmap <leader>t: :Tabularize /:\zs<CR>
 nmap <leader>ts :Tabularize /:/l1c0l0<CR>
 vmap <leader>ts :Tabularize /:/l1c0l0<CR>
 cnoreabbrev Tab Tabularize
+
+au FileType markdown map <Bar> vip :Tabularize /<Bar><CR>
 
 " Vmap for maintain Visual Mode after shifting > and <
 vmap < <gv
