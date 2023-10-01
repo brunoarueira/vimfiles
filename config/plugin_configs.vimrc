@@ -12,9 +12,6 @@ let g:user_emmet_settings = {
 \  },
 \}
 
-autocmd! User GoyoEnter Limelight
-autocmd! User GoyoLeave Limelight!
-
 " vim-markdown
 " disable header folding
 let g:vim_markdown_folding_disabled = 1
