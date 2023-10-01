@@ -41,7 +41,6 @@ return packer.startup({
     use 'scrooloose/nerdtree'
     use 'tomtom/tcomment_vim'
     use 'tpope/vim-abolish'
-    use 'tpope/vim-endwise'
     use 'tpope/vim-git'
     -- use 'tpope/vim-rails'
     use 'vim-ruby/vim-ruby'
@@ -71,6 +70,9 @@ return packer.startup({
     use {
       'nvim-treesitter/nvim-treesitter',
       run = ':TSUpdate',
+      requires = {
+        'RRethy/nvim-treesitter-endwise'
+      },
       config = function()
         require('brunoarueira.plugins.treesitter')
       end
