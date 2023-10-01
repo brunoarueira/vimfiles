@@ -11,3 +11,9 @@ require('nvim-treesitter.configs').setup({
 })
 
 vim.treesitter.language.register('markdown', 'mdx')
+
+vim.cmd [[
+  set foldmethod=expr
+  set foldexpr=nvim_treesitter#foldexpr()
+  set nofoldenable
+]]
