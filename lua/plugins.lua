@@ -52,6 +52,7 @@ return packer.startup({
     use 'junegunn/fzf.vim'
     use 'victormours/ruby-memoize.vim'
     use 'mattn/emmet-vim'
+    use 'editorconfig/editorconfig-vim'
 
     use {
       'NvChad/nvim-colorizer.lua',
