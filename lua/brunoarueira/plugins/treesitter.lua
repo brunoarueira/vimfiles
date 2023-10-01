@@ -8,7 +8,7 @@ require('nvim-treesitter.configs').setup({
   indent = {
     enable = true
   },
-  endwise { enable = true }
+  endwise = { enable = true }
 })
 
 vim.treesitter.language.register('markdown', 'mdx')
