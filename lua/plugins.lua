@@ -89,6 +89,14 @@ return packer.startup({
         require('glow').setup()
       end
     }
+    use {
+      'lukas-reineke/headlines.nvim',
+      after = 'nvim-treesitter',
+      ft = { 'markdown' },
+      config = function()
+        require('brunoarueira.plugins.headline')
+      end
+    }
 
     use 'nvim-lua/plenary.nvim'
 
