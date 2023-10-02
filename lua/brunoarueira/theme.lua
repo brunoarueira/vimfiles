@@ -39,5 +39,5 @@ vim.cmd("highlight VertSplit guibg=NONE")
 -- LSP color highlight
 vim.cmd("highlight DiagnosticError guifg=" .. colors.red)
 vim.cmd("highlight DiagnosticWarn guifg=" .. colors.yellow)
-vim.cmd("highlight DiagnosticInfo guifg=" .. colors.lightblue)
-vim.cmd("highlight DiagnosticHint guifg=" .. colors.cyan)
+vim.cmd("highlight DiagnosticInfo guifg=" .. colors.off_blue)
+vim.cmd("highlight DiagnosticHint guifg=" .. colors.teal)

@@ -1,11 +1,22 @@
-return {
-  cyan      = "#8fbcbb",
-  lightblue = "#88c0d0",
-  darkblue  = "#2e3440",
-  red       = "#bf616a",
-  orange    = "#d08770",
-  yellow    = "#ebcb8b",
-  green     = "#a3be8c",
-  white     = "#eceff4",
-  black     = "#000000",
+local colors = {
+  black             = "#2E3440",
+  blue              = "#5E81AC",
+  dark_gray         = "#3B4252",
+  darker_white      = "#E5E9F0",
+  darkest_white     = "#D8DEE9",
+  glacier           = "#81A1C1",
+  gray              = "#434C5E",
+  green             = "#A3BE8C",
+  light_gray        = "#4C566A",
+  light_gray_bright = "#616E88",
+  none              = "NONE",
+  off_blue          = "#88C0D0",
+  orange            = "#D08770",
+  purple            = "#B48EAD",
+  red               = "#BF616A",
+  teal              = "#8FBCBB",
+  white             = "#ECEFF4",
+  yellow            = "#EBCB8B",
 }
+
+return colors

@@ -11,20 +11,20 @@ local colors = require('brunoarueira.colors')
 
 local theme = {
   normal = {
-    a = { fg = colors.darkblue, bg = colors.lightblue },
-    b = { fg = colors.lightblue, bg = colors.darkblue },
-    c = { fg = colors.lightblue, bg = colors.darkblue },
-    z = { fg = colors.lightblue, bg = colors.darkblue },
+    a = { fg = colors.black, bg = colors.off_blue },
+    b = { fg = colors.off_blue, bg = colors.black },
+    c = { fg = colors.off_blue, bg = colors.black },
+    z = { fg = colors.off_blue, bg = colors.black },
   },
 
   insert = {
-    a = { fg = colors.darkblue, bg = colors.lightblue },
-    z = { fg = colors.lightblue, bg = colors.darkblue }
+    a = { fg = colors.black, bg = colors.off_blue },
+    z = { fg = colors.off_blue, bg = colors.black }
   },
-  visual = { a = { fg = colors.darkblue, bg = colors.lightblue } },
+  visual = { a = { fg = colors.black, bg = colors.off_blue } },
   replace = {
-    a = { fg = colors.darkblue, bg = colors.red },
-    z = { fg = colors.darkblue, bg = colors.red }
+    a = { fg = colors.black, bg = colors.red },
+    z = { fg = colors.black, bg = colors.red }
   }
 }
 
@@ -46,7 +46,7 @@ lualine.setup({
           local gs = git_status()
 
           if gs == 'd' then
-            return { fg = colors.lightblue }
+            return { fg = colors.teal }
           elseif gs == 'm' then
             return { fg = colors.red }
           end
