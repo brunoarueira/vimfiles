@@ -1,6 +1,7 @@
 require('nvim-treesitter.configs').setup({
   ensure_installed = {
-    'ruby', 'javascript', 'vim', 'rust', 'yaml', 'lua', 'markdown', 'markdown_inline', 'bash'
+    'ruby', 'javascript', 'vim', 'rust', 'yaml', 'lua', 'markdown', 'markdown_inline', 'bash', 'html',
+    'json'
   },
   highlight = {
     enable = true,
