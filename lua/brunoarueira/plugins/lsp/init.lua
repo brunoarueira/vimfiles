@@ -10,7 +10,7 @@ if (not status) then
   return
 end
 
-local api, diagnostic, lsp = vim.api, vim.diagnostic, vim.lsp
+local api, diagnostic, fn, keymap, lsp = vim.api, vim.diagnostic, vim.fn, vim.keymap, vim.lsp
 
 local cmp = require('cmp')
 local luasnip = require('luasnip')
@@ -102,7 +102,7 @@ cmp.setup({
       if cmp.visible() then
         cmp.select_prev_item()
       elseif luasnip.jumpable(-1) then
-        vim.fn.feedkeys(api.nvim_replace_termcodes('<Plug>luasnip-jump-prev', true, true, true), '')
+        fn.feedkeys(api.nvim_replace_termcodes('<Plug>luasnip-jump-prev', true, true, true), '')
       else
         fallback()
       end
@@ -169,7 +169,7 @@ lsp_zero.set_server_config({
 lsp_zero.on_attach(function(client, bufnr)
   local opts = { buffer = bufnr, remap = false }
 
-  vim.keymap.set("n", "gd", function() lsp.buf.definition() end, opts)
+  keymap.set("n", "gd", function() lsp.buf.definition() end, opts)
 
   -- format on save
   if client.server_capabilities.documentFormattingProvider then

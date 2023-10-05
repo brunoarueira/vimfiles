@@ -1,9 +1,11 @@
+local b, fn = vim.b, vim.fn
+
 -- -- try git status
 
 -- helper function to loop over string lines
 -- copied from https://stackoverflow.com/a/19329565
 local function iterlines(s)
-  if s:sub(-1)~="\n" then s=s.."\n" end
+  if s:sub(-1) ~= "\n" then s = s .. "\n" end
   return s:gmatch("(.-)\n")
 end
 
@@ -14,8 +16,8 @@ local function find_dir(d)
     return d
   end
   -- initialize git_state variable
-  if vim.b.git_state == nil then
-    vim.b.git_state = {'', '', '', ''}
+  if b.git_state == nil then
+    b.git_state = { '', '', '', '' }
   end
   -- fix terminal
   if d:find("term://") ~= nil then
@@ -27,7 +29,7 @@ local function find_dir(d)
   end
   -- fix fugitive etc.
   if d:find("^%w+://") ~= nil then
-    vim.b.git_state[1] = ' ' .. d:gsub("^(%w+)://.*", "%1") .. ' '
+    b.git_state[1] = ' ' .. d:gsub("^(%w+)://.*", "%1") .. ' '
     d = d:gsub("^%w+://", "")
   end
   -- check renaming
@@ -47,11 +49,11 @@ end
 
 -- get git status
 function _G.git_status()
-  vim.b.git_state = {'', '', ''}
+  b.git_state = { '', '', '' }
   -- get & check file directory
-  file_dir = find_dir(vim.fn.expand("%:p:h"))
+  file_dir = find_dir(fn.expand("%:p:h"))
   -- check fugitive etc.
-  if vim.b.git_state[1] ~= "" then
+  if b.git_state[1] ~= "" then
     return 'u'
   end
   -- capture git status call
@@ -62,7 +64,7 @@ function _G.git_status()
   -- close io
   handle:close()
 
-  local git_state = {'', '', '', ''}
+  local git_state = { '', '', '', '' }
   -- branch coloring: 'o': up to date with origin; 'd': head detached; 'm': not up to date with origin
   local branch_col = 'o'
 
@@ -70,7 +72,7 @@ function _G.git_status()
   if output == '' then
     -- not a git repo
     -- save to variable
-    vim.b.git_state = git_state
+    b.git_state = git_state
     -- exit
     return branch_col
   end
@@ -100,7 +102,7 @@ function _G.git_status()
 
   -- loop over residual lines (files) &
   -- store number of files
-  local git_num = {0, 0, 0}
+  local git_num = { 0, 0, 0 }
   for line in line_iter do
     branch_col = 'm'
     -- get first char
@@ -132,7 +134,7 @@ function _G.git_status()
   end
 
   -- save to variable
-  vim.b.git_state = git_state
+  b.git_state = git_state
 
   return branch_col
 end

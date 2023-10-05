@@ -32,12 +32,14 @@ api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
-vim.cmd("highlight Normal guibg=NONE")
-vim.cmd("highlight SignColumn guibg=NONE")
-vim.cmd("highlight VertSplit guibg=NONE")
+cmd [[
+  highlight Normal guibg=NONE
+  highlight SignColumn guibg=NONE
+  highlight VertSplit guibg=NONE
+]]
 
 -- LSP color highlight
-vim.cmd("highlight DiagnosticError guifg=" .. colors.red)
-vim.cmd("highlight DiagnosticWarn guifg=" .. colors.yellow)
-vim.cmd("highlight DiagnosticInfo guifg=" .. colors.off_blue)
-vim.cmd("highlight DiagnosticHint guifg=" .. colors.teal)
+cmd("highlight DiagnosticError guifg=" .. colors.red)
+cmd("highlight DiagnosticWarn guifg=" .. colors.yellow)
+cmd("highlight DiagnosticInfo guifg=" .. colors.off_blue)
+cmd("highlight DiagnosticHint guifg=" .. colors.teal)
