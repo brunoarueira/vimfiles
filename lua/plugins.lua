@@ -31,7 +31,10 @@ return packer.startup({
       end
     }
 
-    use 'danro/rename.vim'
+    use {
+      'tpope/vim-eunuch',
+      cmd = { 'Rename', 'Delete' }
+    }
     use 'godlygeek/tabular'
     use 'tomtom/tlib_vim'
     use 'MarcWeber/vim-addon-mw-utils'
