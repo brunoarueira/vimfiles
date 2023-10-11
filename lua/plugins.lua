@@ -19,8 +19,6 @@ return packer.startup({
   function(use)
     use 'wbthomason/packer.nvim'
 
-    use 'nathom/filetype.nvim'
-
     use 'ervandew/supertab'
 
     use {
