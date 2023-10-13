@@ -87,9 +87,6 @@ autocmd BufReadPost *
 " Remember info about open buffers on close
 set viminfo^=%
 
-" As seen on Vimcasts, expand path for the current file
-let mapleader=','
-
 " Project Specific vimrc
 "=================================
 
