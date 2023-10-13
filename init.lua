@@ -12,12 +12,12 @@ vim.cmd([[
 
   filetype plugin indent on
 
-  lua require('basic')
-  lua require('shortcuts')
-
   source ~/.config/nvim/config/general.vimrc
 
   lua require('brunoarueira.theme')
+
+  lua require('basic')
+  lua require('shortcuts')
 
   source ~/.config/nvim/config/plugin_configs.vimrc
   source ~/.config/nvim/config/filetypes.vimrc
