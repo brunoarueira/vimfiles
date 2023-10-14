@@ -55,6 +55,17 @@ return packer.startup({
     use 'editorconfig/editorconfig-vim'
 
     use {
+      'RRethy/vim-illuminate',
+      config = function()
+        require('illuminate')
+
+        vim.api.nvim_set_hl(0, "IlluminatedWordText", { link = "Visual" })
+        vim.api.nvim_set_hl(0, "IlluminatedWordRead", { link = "Visual" })
+        vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { link = "Visual" })
+      end
+    }
+
+    use {
       'NvChad/nvim-colorizer.lua',
       config = function()
         require('colorizer').setup()
