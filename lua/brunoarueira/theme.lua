@@ -36,6 +36,7 @@ cmd [[
   highlight Normal guibg=NONE
   highlight SignColumn guibg=NONE
   highlight VertSplit guibg=NONE
+  highlight! default link CmpItemKind CmpItemMenuDefault
 ]]
 
 -- LSP color highlight
