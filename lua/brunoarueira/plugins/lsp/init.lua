@@ -200,6 +200,10 @@ lspconfig.vale_ls.setup({
   filetypes = { 'markdown', 'mdx' }
 })
 
+lspconfig.tsserver.setup({
+  filetypes = { 'typescript', 'typescriptreact' }
+})
+
 lspconfig.solargraph.setup({
   cmd = { 'bundle', 'exec', 'solargraph', 'stdio' },
   flags = {

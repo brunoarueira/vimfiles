@@ -10,6 +10,7 @@ require('nvim-treesitter.configs').setup({
     'markdown_inline',
     'ruby',
     'rust',
+    'typescript',
     'vim',
     'yaml',
   },
