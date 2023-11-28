@@ -48,7 +48,10 @@ set wildignore+=*.swp,*~,._*
 " Disable osx index files
 set wildignore+=.DS_Store
 
-set clipboard+=unnamed " Yanks go on clipboard instead.
+" Yanks go on clipboard instead.
+set clipboard+=unnamed
+set clipboard+=unnamedplus
+
 set history=256 " Number of things to remember in history.
 set autowrite " Writes on make/shell commands
 set ruler " Ruler on
