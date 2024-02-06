@@ -1,8 +1,6 @@
 " Settings
 "==================================
 
-set shell=bash
-
 set backspace=indent,eol,start
 set whichwrap+=<,>,h,l
 set autoindent
