@@ -64,7 +64,17 @@ return packer.startup({
     use 'junegunn/fzf'
     use 'junegunn/fzf.vim'
     use 'victormours/ruby-memoize.vim'
-    use 'mattn/emmet-vim'
+    use {
+      'mattn/emmet-vim',
+      config = function()
+        vim.cmd([[
+          let g:user_emmet_install_global = 0
+
+          autocmd FileType html,css EmmetInstall
+        ]])
+      end
+    }
+
     use 'editorconfig/editorconfig-vim'
 
     use {

@@ -78,6 +78,7 @@ cmap('w!!', 'w !sudo tee % >/dev/null')
 -- toggle comment
 nmap('<Leader>c', ':TComment<CR>')
 imap('<Leader>c', ':TComment<CR>')
+vmap('<Leader>c', ':TComment<CR>')
 
 -- Remove the Windows ^M - when the encodings gets messed up
 nmap('<Leader>m', 'mmHmt:%s/<C-V><cr>//ge<cr>\'tzt\'m')
