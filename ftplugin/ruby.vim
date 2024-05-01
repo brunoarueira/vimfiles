@@ -47,3 +47,28 @@ function! QuoteSwitcher()
   call cursor( 0, getpos('.')[2] - 1 )
 endfunction
 nnoremap <leader>qs :call QuoteSwitcher()<cr>
+
+let s:k_be = [ 'do', 'end' ]
+function! s:ToggleBeginOrBracket()
+  let c = matchstr(getline('.'), '\%' . col('.') . 'c.')
+
+  if c =~ '[{}]'
+    " don't use matchit for {,}
+    exe 'normal! %s'.s:k_be[1-(c=='}')]."\<esc>``s".s:k_be[(c=='}')]."\<esc>"
+  else
+    let w = expand('<cword>')
+    if w == 'begin' || w == 'do'
+      " use matchit
+      normal %
+      exe "normal! ciw}\<esc>``ciw{\<esc>"
+    elseif w == 'end'
+      " use mathit
+      normal %
+      exe "normal! ciw{\<esc>``ciw}\<esc>"
+    else
+      throw 'Cannot toggle block: cursor is not on {, }, begin/do nor end'
+    endif
+  endif
+endfunction
+:map <leader>[ :call <sid>ToggleBeginOrBracket()<CR>
+:map! <leader>[ :call <sid>ToggleBeginOrBracket()<CR>
