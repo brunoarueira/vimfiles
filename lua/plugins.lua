@@ -103,6 +103,18 @@ return packer.startup({
     }
 
     use {
+      'ray-x/go.nvim',
+      requires = {
+        'ray-x/guihua.lua'
+      },
+      config = function()
+        require('go').setup()
+      end,
+      ft = { 'go', 'gomod' },
+      run = ":lua require('go.install').update_all_sync()"
+    }
+
+    use {
       'nvim-treesitter/nvim-treesitter',
       run = ':TSUpdate',
       requires = {

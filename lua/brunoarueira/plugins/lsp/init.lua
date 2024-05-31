@@ -185,6 +185,7 @@ end)
 
 local servers = {
   'eslint',
+  'gopls',
   'lua_ls',
   'rust_analyzer',
   'solargraph',
@@ -195,6 +196,10 @@ local servers = {
 
 lsp_zero.ensure_installed(servers)
 lsp_zero.setup_servers(servers)
+
+lspconfig.gopls.setup({
+  filetypes = { 'go', 'gomod' }
+})
 
 lspconfig.vale_ls.setup({
   filetypes = { 'markdown', 'mdx' }
