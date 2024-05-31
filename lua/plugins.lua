@@ -32,7 +32,10 @@ return packer.startup({
   function(use)
     use 'wbthomason/packer.nvim'
 
-    use 'ervandew/supertab'
+    use {
+      'ervandew/supertab',
+      branch = 'main'
+    }
 
     use {
       'nvim-lualine/lualine.nvim',
