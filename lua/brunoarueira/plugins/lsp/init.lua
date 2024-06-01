@@ -189,7 +189,6 @@ local servers = {
   'lua_ls',
   'rust_analyzer',
   'solargraph',
-  'tsserver',
   'vale_ls',
   'yamlls',
 }
@@ -203,10 +202,6 @@ lspconfig.gopls.setup({
 
 lspconfig.vale_ls.setup({
   filetypes = { 'markdown', 'mdx' }
-})
-
-lspconfig.tsserver.setup({
-  filetypes = { 'typescript', 'typescriptreact' }
 })
 
 lspconfig.solargraph.setup({

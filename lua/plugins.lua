@@ -151,6 +151,14 @@ return packer.startup({
     use 'nvim-lua/plenary.nvim'
 
     use {
+      "pmizio/typescript-tools.nvim",
+      requires = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+      config = function()
+        require("typescript-tools").setup {}
+      end,
+    }
+
+    use {
       'VonHeikemen/lsp-zero.nvim',
       branch = 'v2.x',
       requires = {
