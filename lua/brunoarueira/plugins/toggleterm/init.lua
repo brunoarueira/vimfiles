@@ -66,6 +66,8 @@ toggleterm.setup({
 })
 
 -- Autocommands for terminal behavior
+vim.api.nvim_create_augroup("TerminalBehavior", { clear = true })
+
 vim.api.nvim_create_autocmd({ "TermOpen" }, {
   group = "TerminalBehavior",
   pattern = "term://*",
