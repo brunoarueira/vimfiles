@@ -67,7 +67,7 @@ toggleterm.setup({
 
 -- Autocommands for terminal behavior
 vim.api.nvim_create_autocmd({ "TermOpen" }, {
-  group = "TerminalBehavior"
+  group = "TerminalBehavior",
   pattern = "term://*",
   callback = function()
     vim.opt_local.number = false
@@ -79,7 +79,7 @@ vim.api.nvim_create_autocmd({ "TermOpen" }, {
 })
 
 vim.api.nvim_create_autocmd({ "TermEnter" }, {
-  group = "TerminalBehavior"
+  group = "TerminalBehavior",
   pattern = "*",
   callback = function()
     vim.cmd("startinsert")
