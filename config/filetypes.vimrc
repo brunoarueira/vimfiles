@@ -1,4 +1,4 @@
-autocmd FileType css,html,ruby,eruby,yaml,sql,json,lua,javascript,typescript,typescriptreact setlocal shiftwidth=2 tabstop=2 expandtab
+autocmd FileType css,html,ruby,eruby,yaml,sql,json,lua,javascript,typescript,typescriptreact,astro setlocal shiftwidth=2 tabstop=2 expandtab
 
 autocmd FileType sql setlocal formatoptions=croqnl1 foldmethod=indent foldlevel=1
 

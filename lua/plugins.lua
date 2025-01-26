@@ -191,6 +191,8 @@ return packer.startup({
       require('git-conflict').setup()
     end }
 
+    use 'wuelnerdotexe/vim-astro'
+
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if packer_bootstrap then
