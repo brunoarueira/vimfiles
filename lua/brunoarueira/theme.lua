@@ -5,7 +5,7 @@ local api, o, cmd, opt = vim.api, vim.o, vim.cmd, vim.opt
 -- o
 o.hidden = true
 o.emoji = true
-o.signcolumn = 'yes:1'
+o.signcolumn = 'auto:2'
 o.shortmess = 'filnxtToOFc' -- Avoid showing extra messages when using completion
 o.formatoptions = 'cqrnj'
 o.termguicolors = true
