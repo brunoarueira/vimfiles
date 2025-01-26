@@ -54,7 +54,6 @@ set history=256 " Number of things to remember in history.
 set autowrite " Writes on make/shell commands
 set ruler " Ruler on
 set nu " Line numbers on
-set relativenumber
 set wrap " Line wrapping on
 
 set ignorecase " Ignore case in searches
