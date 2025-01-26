@@ -1,6 +1,6 @@
 -- Configure Treesitter
 require('nvim-treesitter.configs').setup({
-  -- Language servers
+  -- Language parsers
   ensure_installed = {
     'bash',
     'dockerfile',
