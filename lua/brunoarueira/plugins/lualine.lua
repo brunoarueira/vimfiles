@@ -1,13 +1,25 @@
 local status, lualine = pcall(require, 'lualine')
 
-if (not status) then
-  return
-end
+if (not status) then return end
 
 require('brunoarueira.helpers')
 
-local icons = require('brunoarueira.icons')
 local colors = require('brunoarueira.colors')
+
+-- Define conditions for component visibility
+local conditions = {
+  buffer_not_empty = function()
+    return vim.fn.empty(vim.fn.expand('%:t')) ~= 1
+  end,
+  hide_in_width = function()
+    return vim.fn.winwidth(0) > 80
+  end,
+  check_git_workspace = function()
+    local filepath = vim.fn.expand('%:p:h')
+    local gitdir = vim.fn.finddir('.git', filepath .. ';')
+    return gitdir and #gitdir > 0 and #gitdir < #filepath
+  end
+}
 
 local theme = {
   normal = {
@@ -34,32 +46,74 @@ lualine.setup({
     icons_enabled = true,
     component_separators = '',
     section_separators = { left = '', right = '' },
-    disabled_filetypes = {}
+    disabled_filetypes = {
+      statusline = {},
+      winbar = {},
+    },
+    ignore_focus = {},
+    always_divide_middle = true,
+    globalstatus = true,
+    refresh = {
+      statusline = 1000,
+      tabline = 1000,
+      winbar = 1000,
+    }
   },
   sections = {
-    lualine_a = { { 'mode', fmt = function(res) return res:sub(1, 1) end } },
-    lualine_b = { { 'filename', file_status = true, path = 0 } },
+    lualine_a = {
+      {
+        'mode',
+        fmt = function(res) return res:sub(1, 1) end,
+        icons_enabled = true,
+      }
+    },
+    lualine_b = {
+      {
+        'filename',
+        file_status = true,
+        path = 1, -- Show relative path
+        shorting_target = 40,
+        symbols = {
+          modified = ' ●',
+          readonly = ' ',
+          unnamed = '[No Name]'
+        }
+      }
+    },
     lualine_c = {
       {
         'branch',
+        icon = '',
         color = function()
           local gs = git_status()
-
           if gs == 'd' then
             return { fg = colors.teal }
           elseif gs == 'm' then
             return { fg = colors.red }
           end
-        end
+        end,
+        cond = conditions.check_git_workspace,
+      },
+      {
+        'diff',
+        symbols = {
+          added = ' ',
+          modified = ' ',
+          removed = ' '
+        },
+        cond = conditions.hide_in_width,
       },
     },
     lualine_x = {
       {
         'diagnostics',
-        sources = {
-          'nvim_diagnostic'
-        },
-        symbols = icons
+        sources = { 'nvim_diagnostic' },
+        symbols = {
+          error = '',
+          warn = '',
+          info = ' ',
+          hint = ' '
+        }
       },
       'encoding',
       'filetype'
