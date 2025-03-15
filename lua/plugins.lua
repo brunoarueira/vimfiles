@@ -118,6 +118,14 @@ return packer.startup({
     }
 
     use {
+      'windwp/nvim-ts-autotag',
+      requires = {
+        'nvim-treesitter/nvim-treesitter'
+      },
+      event = 'InsertEnter'
+    }
+
+    use {
       'nvim-treesitter/nvim-treesitter',
       run = ':TSUpdate',
       requires = {
