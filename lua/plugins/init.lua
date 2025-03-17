@@ -17,13 +17,11 @@ return {
   "vim-scripts/gitignore",
   "bogado/file-line",
   "terryma/vim-multiple-cursors",
-  "junegunn/fzf",
-  "junegunn/fzf.vim",
   "victormours/ruby-memoize.vim",
   {
     "mattn/emmet-vim",
     config = function()
-	vim.cmd([[
+      vim.cmd([[
 	let g:user_emmet_install_global = 0
 
 	autocmd FileType html,css EmmetInstall
@@ -36,11 +34,11 @@ return {
   {
     "RRethy/vim-illuminate",
     config = function()
-	require("illuminate")
+      require("illuminate")
 
-	vim.api.nvim_set_hl(0, "IlluminatedWordText", { link = "Visual" })
-	vim.api.nvim_set_hl(0, "IlluminatedWordRead", { link = "Visual" })
-	vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { link = "Visual" })
+      vim.api.nvim_set_hl(0, "IlluminatedWordText", { link = "Visual" })
+      vim.api.nvim_set_hl(0, "IlluminatedWordRead", { link = "Visual" })
+      vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { link = "Visual" })
     end,
   },
 

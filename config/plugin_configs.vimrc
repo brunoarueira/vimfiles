@@ -11,11 +11,3 @@ let g:user_emmet_settings = {
 \      'quote_char': "'",
 \  },
 \}
-
-" fzf
-
-" hide status and ruler for cleaner fzf windows
-if has('nvim')
-  au FileType fzf set laststatus& laststatus=0 | au BufLeave <buffer> set laststatus&
-endif
-
