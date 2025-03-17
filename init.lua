@@ -20,7 +20,6 @@ vim.cmd([[
 
   lua require('config.shortcuts')
 
-  source ~/.config/nvim/config/plugin_configs.vimrc
   source ~/.config/nvim/config/filetypes.vimrc
   source ~/.config/nvim/config/functions.vimrc
 ]])
