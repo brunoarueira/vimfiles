@@ -4,10 +4,10 @@ This repository contains my personal Neovim configuration, tailored for daily us
 
 ## Features
 
-*   **Plugin Management:** Uses [LazyVim](https://github.com/LazyVim/LazyVim) for plugin management. Plugin configurations are located in `lua/plugins.lua` and `lua/lazyvim.plugins.spec.lua`.
-*   **Custom Theme:** Includes a custom theme (likely located in `lua/brunoarueira/theme.lua`).
-*   **LSP Support:** Configured with [lsp-zero.nvim](https://github.com/VonHeikemen/lsp-zero.nvim) for Language Server Protocol support (see `lua/brunoarueira/plugins/lsp.lua`).
-*   **Treesitter Integration:** Uses [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) for improved syntax highlighting and code parsing (see `lua/brunoarueira/plugins/treesitter.lua`).
+*   **Plugin Management:** Uses [LazyVim](https://github.com/LazyVim/LazyVim) for plugin management. Plugin configurations are located under `lua/plugins`.
+*   **Custom Theme:** Includes a custom theme (likely located in `lua/config/theme.lua`).
+*   **LSP Support:** Configured with [lsp-zero.nvim](https://github.com/VonHeikemen/lsp-zero.nvim) for Language Server Protocol support (see `lua/plugins/lsp-zero.lua`).
+*   **Treesitter Integration:** Uses [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) for improved syntax highlighting and code parsing (see `lua/plugins/treesitter.lua`).
 *   **Other Plugins:** Includes configurations for various plugins, such as:
     *   [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) (status line)
     *   [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim) (terminal management)
