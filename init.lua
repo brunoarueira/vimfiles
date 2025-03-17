@@ -17,6 +17,5 @@ vim.cmd([[
   lua require('config.theme')
   lua require('config.shortcuts')
 
-  source ~/.config/nvim/config/filetypes.vimrc
   source ~/.config/nvim/config/functions.vimrc
 ]])
