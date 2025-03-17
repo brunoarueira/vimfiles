@@ -8,13 +8,11 @@ vim.cmd([[
   syntax sync fromstart
   filetype off
 
-  lua require('config.basic')
+  lua require('config.settings')
   lua require('config.lazy')
   lua require('plugins')
 
   filetype plugin indent on
-
-  source ~/.config/nvim/config/general.vimrc
 
   lua require('brunoarueira.theme')
 
