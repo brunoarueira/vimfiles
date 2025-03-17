@@ -1,21 +1,23 @@
-vim.cmd([[
-  " VimFiles by Bruno Arueira
-  " ==============================
-  " http://github.com/brunoarueira/vimfiles
+-- VimFiles by Bruno Arueira
+-- ==============================
+-- http://github.com/brunoarueira/vimfiles
 
+vim.cmd([[
   set nocompatible
   syntax enable
   syntax sync fromstart
   filetype off
+]])
 
-  lua require('config.settings')
-  lua require('config.lazy')
-  lua require('plugins')
+require('config.settings')
+require('config.lazy')
+require('plugins')
 
-  filetype plugin indent on
+vim.cmd [[filetype plugin indent on]]
 
-  lua require('config.theme')
-  lua require('config.shortcuts')
+require('config.theme')
+require('config.shortcuts')
 
+vim.cmd([[
   source ~/.config/nvim/config/functions.vimrc
 ]])
