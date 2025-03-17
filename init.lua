@@ -8,7 +8,7 @@ vim.cmd([[
   syntax sync fromstart
   filetype off
 
-  lua require('basic')
+  lua require('config.basic')
   lua require('config.lazy')
   lua require('plugins')
 
@@ -18,7 +18,7 @@ vim.cmd([[
 
   lua require('brunoarueira.theme')
 
-  lua require('shortcuts')
+  lua require('config.shortcuts')
 
   source ~/.config/nvim/config/plugin_configs.vimrc
   source ~/.config/nvim/config/filetypes.vimrc
