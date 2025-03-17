@@ -1,9 +1,3 @@
-local status, toggleterm = pcall(require, "toggleterm")
-
-if (not status) then
-  return
-end
-
 local function configure_terminal_keymaps()
   local term_opts = { noremap = true, silent = true, buffer = 0 }
 
@@ -19,8 +13,36 @@ local function configure_terminal_keymaps()
   vim.keymap.set("t", "<m-q>", [[<C-\><C-n>:ToggleTerm<CR>]], term_opts) -- Window commands
 end
 
+-- Autocommands for terminal behavior
+vim.api.nvim_create_augroup("TerminalBehavior", { clear = true })
+
+vim.api.nvim_create_autocmd({ "TermOpen" }, {
+  group = "TerminalBehavior",
+  pattern = "term://*",
+  callback = function()
+    vim.opt_local.number = false
+    vim.opt_local.relativenumber = false
+    vim.opt_local.signcolumn = "no"
+
+    vim.cmd("startinsert")
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "TermEnter" }, {
+  group = "TerminalBehavior",
+  pattern = "*",
+  callback = function()
+    vim.cmd("startinsert")
+
+    configure_terminal_keymaps()
+  end,
+})
+
 -- Main terminal configuration
-toggleterm.setup({
+return {
+  "akinsho/toggleterm.nvim",
+  branch = "main",
+  opts = {
   -- Appearance
   size = function(term)
     if term.direction == "horizontal" then
@@ -63,29 +85,5 @@ toggleterm.setup({
       guibg = "#1a1b26",
     },
   }
-})
-
--- Autocommands for terminal behavior
-vim.api.nvim_create_augroup("TerminalBehavior", { clear = true })
-
-vim.api.nvim_create_autocmd({ "TermOpen" }, {
-  group = "TerminalBehavior",
-  pattern = "term://*",
-  callback = function()
-    vim.opt_local.number = false
-    vim.opt_local.relativenumber = false
-    vim.opt_local.signcolumn = "no"
-
-    vim.cmd("startinsert")
-  end,
-})
-
-vim.api.nvim_create_autocmd({ "TermEnter" }, {
-  group = "TerminalBehavior",
-  pattern = "*",
-  callback = function()
-    vim.cmd("startinsert")
-
-    configure_terminal_keymaps()
-  end,
-})
+}
+}

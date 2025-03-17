@@ -8,6 +8,8 @@ vim.cmd([[
   syntax sync fromstart
   filetype off
 
+  lua require('basic')
+  lua require('config.lazy')
   lua require('plugins')
 
   filetype plugin indent on
@@ -16,7 +18,6 @@ vim.cmd([[
 
   lua require('brunoarueira.theme')
 
-  lua require('basic')
   lua require('shortcuts')
 
   source ~/.config/nvim/config/plugin_configs.vimrc

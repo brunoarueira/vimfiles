@@ -34,19 +34,25 @@ highlight("Headline4", { fg = colors.glacier, bg = "#363E4C", gui = 'bold' })
 highlight("Headline5", { fg = colors.purple, bg = "#3a3c4a", gui = 'bold' })
 highlight("Headline6", { fg = colors.darkest_white, bg = "#3d434f", gui = 'bold' })
 
-require('headlines').setup({
-  markdown = {
-    fat_headline_lower_string = "▔",
-    headline_highlights = {
-      "Headline1",
-      "Headline2",
-      "Headline3",
-      "Headline4",
-      "Headline5",
-      "Headline6",
-    },
-    codeblock_highlight = "CodeBlock",
-    dash_highlight = "Dash",
-    quote_highlight = "Quote"
-  },
-})
+return {
+    "lukas-reineke/headlines.nvim",
+    event = "VeryLazy",
+    ft = { "markdown" },
+    dependencies = "nvim-treesitter/nvim-treesitter",
+    opts = {
+	markdown = {
+	fat_headline_lower_string = "▔",
+	headline_highlights = {
+	"Headline1",
+	"Headline2",
+	"Headline3",
+	"Headline4",
+	"Headline5",
+	"Headline6",
+	},
+	codeblock_highlight = "CodeBlock",
+	dash_highlight = "Dash",
+	quote_highlight = "Quote"
+	},
+	}
+}
