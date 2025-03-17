@@ -18,17 +18,6 @@ return {
   "bogado/file-line",
   "terryma/vim-multiple-cursors",
   "victormours/ruby-memoize.vim",
-  {
-    "mattn/emmet-vim",
-    config = function()
-      vim.cmd([[
-	let g:user_emmet_install_global = 0
-
-	autocmd FileType html,css EmmetInstall
-	]])
-    end,
-  },
-
   "editorconfig/editorconfig-vim",
 
   {
