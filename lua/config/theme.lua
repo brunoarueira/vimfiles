@@ -1,4 +1,4 @@
-local colors = require('brunoarueira.colors')
+local colors = require('config.theme_colors')
 
 local api, o, cmd, opt = vim.api, vim.o, vim.cmd, vim.opt
 
@@ -26,10 +26,10 @@ cmd.colorscheme('nord')
 -- Highlight yank'd text after yankin'
 api.nvim_create_augroup("YankHighlight", {})
 api.nvim_create_autocmd("TextYankPost", {
-  group = "YankHighlight",
-  callback = function()
-    vim.highlight.on_yank({ higroup = "IncSearch", timeout = 100 })
-  end,
+	group = "YankHighlight",
+	callback = function()
+		vim.highlight.on_yank({ higroup = "IncSearch", timeout = 100 })
+	end,
 })
 
 cmd [[
