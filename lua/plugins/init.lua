@@ -6,8 +6,6 @@ return {
 	"tomtom/tlib_vim",
 	"MarcWeber/vim-addon-mw-utils",
 
-	{ "rstacruz/sparkup", rtp = "vim/" },
-
 	"scrooloose/nerdtree",
 	"tomtom/tcomment_vim",
 	"tpope/vim-abolish",

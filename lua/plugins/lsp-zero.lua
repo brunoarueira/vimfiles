@@ -188,6 +188,7 @@ return {
 		end)
 
 		local servers = {
+			'emmet_ls',
 			'eslint',
 			'gopls',
 			'lua_ls',
@@ -199,6 +200,13 @@ return {
 
 		lsp_zero.ensure_installed(servers)
 		lsp_zero.setup_servers(servers)
+
+		lspconfig.emmet_ls.setup({
+			filetypes = { 'eruby', 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less', 'javascript' },
+			init_options = {
+				html = { options = { ['bem.enabled'] = true } },
+			},
+		})
 
 		lspconfig.gopls.setup({
 			filetypes = { 'go', 'gomod' }
