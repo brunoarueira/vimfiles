@@ -142,8 +142,8 @@ return {
 		})
 
 		vim.cmd [[
-		highlight! default link CmpItemKind CmpItemMenuDefault
-	]]
+		  highlight! default link CmpItemKind CmpItemMenuDefault
+		]]
 
 		lsp_zero.preset('recommended')
 
@@ -217,10 +217,7 @@ return {
 		})
 
 		lspconfig.solargraph.setup({
-			cmd = { 'bundle', 'exec', 'solargraph', 'stdio' },
-			flags = {
-				debounte_text_changes = 50,
-			},
+			cmd = { 'solargraph', 'stdio' },
 			settings = {
 				solargraph = {
 					autoformat = false,
