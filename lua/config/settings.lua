@@ -99,17 +99,17 @@ vim.o.timeoutlen = 300
 
 -- Encoding
 if not vim.g.neovim then
-  vim.cmd("set encoding=utf-8 nobomb")
+	vim.cmd("set encoding=utf-8 nobomb")
 end
 
 -- Return to last edit position when opening files
 vim.api.nvim_create_autocmd("BufReadPost", {
-  pattern = "*",
-  callback = function()
-    if vim.v.oldfiles and vim.fn.line("'\"") > 0 and vim.fn.line("'\"") <= vim.fn.line("$") then
-      vim.cmd("normal! g`\"")
-    end
-  end,
+	pattern = "*",
+	callback = function()
+		if vim.v.oldfiles and vim.fn.line("'\"") > 0 and vim.fn.line("'\"") <= vim.fn.line("$") then
+			vim.cmd("normal! g`\"")
+		end
+	end,
 })
 
 -- Remember info about open buffers on close
@@ -125,35 +125,33 @@ vim.o.secure = true
 -- ================================
 
 vim.api.nvim_create_autocmd("BufEnter", {
-  pattern = ".psqlrc",
-  callback = function()
-    vim.o.filetype = "sql"
-  end,
+	pattern = ".psqlrc",
+	callback = function()
+		vim.o.filetype = "sql"
+	end,
 })
 
 vim.api.nvim_create_autocmd("BufEnter", {
-  pattern = "bash_profile",
-  callback = function()
-    vim.o.filetype = "sh"
-  end,
+	pattern = "bash_profile",
+	callback = function()
+		vim.o.filetype = "sh"
+	end,
 })
 
 -- Creates parent directories on save
-local function MkNonExDir(file, buf)
-  if vim.bo[buf].buftype == "" and not string.match(file, "^%w+:/") then
-    local dir = vim.fn.fnamemodify(file, ":h")
-    if not vim.fn.isdirectory(dir) then
-      vim.fn.mkdir(dir, "p")
-    end
-  end
-end
-
-vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = "*",
-  callback = function()
-    MkNonExDir(vim.fn.expand("<afile>"), vim.fn.expand("<abuf>"))
-  end,
-})
+vim.cmd [[
+function! s:MkNonExDir(file, buf)
+   if empty(getbufvar(a:buf, '&buftype')) && a:file!~#'\v^\w+\:\/'
+     let dir=fnamemodify(a:file, ':h')
+     if !isdirectory(dir)
+       call mkdir(dir, 'p')
+     endif
+   endif
+ endfunction
+ augroup BWCCreateDir
+   autocmd!
+   autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
+]]
 
 -- Change program used by :grep
 vim.o.grepprg = "rg --vimgrep --smart-case --follow"
