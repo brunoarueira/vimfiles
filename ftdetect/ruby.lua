@@ -5,5 +5,7 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 		"*.gemfile", -- Matches files ending with .gemfile
 		"*Fastfile", -- Matches Fastfile
 	},
-	command = "setlocal filetype=ruby",
+	callback = function()
+		vim.bo.filetype = 'ruby'
+	end
 })
