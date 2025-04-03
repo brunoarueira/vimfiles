@@ -3,7 +3,7 @@ return {
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "kyazdani42/nvim-web-devicons" },
 		config = function()
-			require('brunoarueira.helpers')
+			require('plugins.helpers')
 
 			local colors = require('config.theme_colors')
 
