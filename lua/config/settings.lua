@@ -37,26 +37,17 @@ vim.o.ffs = "unix,dos,mac"
 vim.o.wildmode = "longest,list"
 vim.o.wildmenu = true
 
--- Wildignore settings (Disable output and VCS files)
-vim.o.wildignore = vim.o.wildignore .. ",*.o,*.out,*.obj,.git,*.rbc,*.rbo,*.class,.svn,*.gem"
+local wildignores = {
+	"*.o,*.out,*.obj,.git,*.rbc,*.rbo,*.class,.svn,*.gem",   -- Wildignore settings (Disable output and VCS files)
+	"*.gif,*.jpg,*.png,*.log",                               -- Ignore images and log files
+	"*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz",               -- Disable archive files
+	"*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*,*/.sass-cache/*", -- Ignore bundler and sass cache
+	"*/tmp/cache/assets/*/sprockets/*,*/tmp/cache/assets/*/sass/*", -- Ignore rails temporary asset caches
+	"*.swp,*~,._*",                                          -- Disable temp and backup files
+	".DS_Store",                                             -- Disable osx index files
+}
 
--- Ignore images and log files
-vim.o.wildignore = vim.o.wildignore .. ",*.gif,*.jpg,*.png,*.log"
-
--- Disable archive files
-vim.o.wildignore = vim.o.wildignore .. ",*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz"
-
--- Ignore bundler and sass cache
-vim.o.wildignore = vim.o.wildignore .. ",*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*,*/.sass-cache/*"
-
--- Ignore rails temporary asset caches
-vim.o.wildignore = vim.o.wildignore .. ",*/tmp/cache/assets/*/sprockets/*,*/tmp/cache/assets/*/sass/*"
-
--- Disable temp and backup files
-vim.o.wildignore = vim.o.wildignore .. ",*.swp,*~,._*"
-
--- Disable osx index files
-vim.o.wildignore = vim.o.wildignore .. ",.DS_Store"
+vim.o.wildignore = table.concat(wildignores, ",")
 
 -- Yanks go on clipboard instead.
 vim.o.clipboard = "unnamed,unnamedplus"
