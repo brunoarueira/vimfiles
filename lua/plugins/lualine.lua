@@ -5,8 +5,6 @@ return {
 		config = function()
 			require('plugins.helpers')
 
-			local colors = require('config.theme_colors')
-
 			-- Define conditions for component visibility
 			local conditions = {
 				buffer_not_empty = function()
@@ -22,28 +20,9 @@ return {
 				end
 			}
 
-			local theme = {
-				normal = {
-					a = { fg = colors.black, bg = colors.off_blue },
-					b = { fg = colors.off_blue, bg = colors.black },
-					c = { fg = colors.off_blue, bg = colors.black },
-					z = { fg = colors.off_blue, bg = colors.black },
-				},
-
-				insert = {
-					a = { fg = colors.black, bg = colors.off_blue },
-					z = { fg = colors.off_blue, bg = colors.black }
-				},
-				visual = { a = { fg = colors.black, bg = colors.off_blue } },
-				replace = {
-					a = { fg = colors.black, bg = colors.red },
-					z = { fg = colors.black, bg = colors.red }
-				}
-			}
-
 			require('lualine').setup({
 				options = {
-					theme = theme,
+					theme = 'nord',
 					icons_enabled = true,
 					component_separators = '',
 					section_separators = { left = '', right = '' },
@@ -85,14 +64,6 @@ return {
 						{
 							'branch',
 							icon = '',
-							color = function()
-								local gs = git_status()
-								if gs == 'd' then
-									return { fg = colors.teal }
-								elseif gs == 'm' then
-									return { fg = colors.red }
-								end
-							end,
 							cond = conditions.check_git_workspace,
 						},
 						{

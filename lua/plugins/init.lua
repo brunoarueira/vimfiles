@@ -69,7 +69,7 @@ return {
 		event = "InsertEnter",
 	},
 
-	"arcticicestudio/nord-vim",
+	"shaunsingh/nord.nvim",
 	"rust-lang/rust.vim",
 
 	-- JSON front matter highlight use
