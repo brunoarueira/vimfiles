@@ -22,7 +22,7 @@ return {
 
 			require('lualine').setup({
 				options = {
-					theme = 'nord',
+					theme = 'nordic',
 					icons_enabled = true,
 					component_separators = '',
 					section_separators = { left = '', right = '' },

@@ -69,7 +69,14 @@ return {
 		event = "InsertEnter",
 	},
 
-	"shaunsingh/nord.nvim",
+	{
+		"AlexvZyl/nordic.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+		    require("nordic").load()
+		end
+	},
 	"rust-lang/rust.vim",
 
 	-- JSON front matter highlight use

@@ -19,7 +19,7 @@ opt.fillchars = ""
 opt.cursorline = true
 
 -- cmd
-cmd.colorscheme('nord')
+cmd.colorscheme('nordic')
 
 -- Highlight yank'd text after yankin'
 api.nvim_create_augroup("YankHighlight", {})
