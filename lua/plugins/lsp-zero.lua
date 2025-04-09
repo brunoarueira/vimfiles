@@ -161,13 +161,15 @@ return {
             capabilities = capabilities,
         }
 
-        lsp_zero.on_attach(function(_, bufnr)
+        local on_attach = function(_, bufnr)
             local opts = { buffer = bufnr, remap = false }
 
             keymap.set('n', 'gd', function()
                 lsp.buf.definition()
             end, opts)
-        end)
+        end
+
+        lsp_zero.on_attach(on_attach)
 
         local servers = {
             'emmet_ls',
@@ -208,8 +210,17 @@ return {
             filetypes = { 'markdown', 'mdx' },
         }
 
+        lspconfig.rubocop.setup {
+            cmd = { 'bundle', 'exec', 'rubocop', '--lsp' },
+        }
+
         lspconfig.solargraph.setup {
             cmd = { 'solargraph', 'stdio' },
+            on_attach = function(client, bufnr)
+                on_attach(client, bufnr)
+
+                client.server_capabilities.documentFormattingProvider = false
+            end,
             settings = {
                 solargraph = {
                     autoformat = false,
