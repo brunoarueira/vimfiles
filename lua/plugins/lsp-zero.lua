@@ -161,23 +161,12 @@ return {
             capabilities = capabilities,
         }
 
-        lsp_zero.on_attach(function(client, bufnr)
+        lsp_zero.on_attach(function(_, bufnr)
             local opts = { buffer = bufnr, remap = false }
 
             keymap.set('n', 'gd', function()
                 lsp.buf.definition()
             end, opts)
-
-            -- format on save
-            if client.server_capabilities.documentFormattingProvider then
-                api.nvim_create_autocmd('BufWritePre', {
-                    group = api.nvim_create_augroup('Format', { clear = true }),
-                    buffer = bufnr,
-                    callback = function()
-                        lsp.buf.format()
-                    end,
-                })
-            end
         end)
 
         local servers = {

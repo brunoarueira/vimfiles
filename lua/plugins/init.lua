@@ -82,6 +82,18 @@ return {
     -- JSON front matter highlight use
     'elzr/vim-json',
     'ellisonleao/glow.nvim',
+    {
+        'stevearc/conform.nvim',
+        opts = {
+            format_on_save = {
+                timeout_ns = 5000,
+                lsp_format = 'fallback',
+            },
+            formatters_by_ft = {
+                lua = { 'stylua' },
+            },
+        },
+    },
 
     'nvim-lua/plenary.nvim',
 
