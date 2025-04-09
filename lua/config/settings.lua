@@ -1,10 +1,10 @@
 -- Settings
 
 -- Backspace behavior
-vim.o.backspace = "indent,eol,start"
+vim.o.backspace = 'indent,eol,start'
 
 -- Whichwrap
-vim.o.whichwrap = "<,>,h,l"
+vim.o.whichwrap = '<,>,h,l'
 
 -- Identation
 vim.o.autoindent = true
@@ -31,26 +31,26 @@ vim.o.ttyfast = true
 vim.o.lazyredraw = true
 
 -- Use Unix as the standard file type
-vim.o.ffs = "unix,dos,mac"
+vim.o.ffs = 'unix,dos,mac'
 
 -- Wildmenu settings
-vim.o.wildmode = "longest,list"
+vim.o.wildmode = 'longest,list'
 vim.o.wildmenu = true
 
 local wildignores = {
-	"*.o,*.out,*.obj,.git,*.rbc,*.rbo,*.class,.svn,*.gem",   -- Wildignore settings (Disable output and VCS files)
-	"*.gif,*.jpg,*.png,*.log",                               -- Ignore images and log files
-	"*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz",               -- Disable archive files
-	"*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*,*/.sass-cache/*", -- Ignore bundler and sass cache
-	"*/tmp/cache/assets/*/sprockets/*,*/tmp/cache/assets/*/sass/*", -- Ignore rails temporary asset caches
-	"*.swp,*~,._*",                                          -- Disable temp and backup files
-	".DS_Store",                                             -- Disable osx index files
+    '*.o,*.out,*.obj,.git,*.rbc,*.rbo,*.class,.svn,*.gem', -- Wildignore settings (Disable output and VCS files)
+    '*.gif,*.jpg,*.png,*.log', -- Ignore images and log files
+    '*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz', -- Disable archive files
+    '*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*,*/.sass-cache/*', -- Ignore bundler and sass cache
+    '*/tmp/cache/assets/*/sprockets/*,*/tmp/cache/assets/*/sass/*', -- Ignore rails temporary asset caches
+    '*.swp,*~,._*', -- Disable temp and backup files
+    '.DS_Store', -- Disable osx index files
 }
 
-vim.o.wildignore = table.concat(wildignores, ",")
+vim.o.wildignore = table.concat(wildignores, ',')
 
 -- Yanks go on clipboard instead.
-vim.o.clipboard = "unnamed,unnamedplus"
+vim.o.clipboard = 'unnamed,unnamedplus'
 
 -- History size
 vim.o.history = 256
@@ -81,30 +81,30 @@ vim.o.swapfile = false
 
 -- Text width and format options
 vim.o.textwidth = 79
-vim.o.formatoptions = "qrn1"
+vim.o.formatoptions = 'qrn1'
 
 -- Timeout settings
-vim.cmd("set notimeout")
+vim.cmd 'set notimeout'
 vim.o.timeout = true
 vim.o.timeoutlen = 300
 
 -- Encoding
 if not vim.g.neovim then
-	vim.cmd("set encoding=utf-8 nobomb")
+    vim.cmd 'set encoding=utf-8 nobomb'
 end
 
 -- Return to last edit position when opening files
-vim.api.nvim_create_autocmd("BufReadPost", {
-	pattern = "*",
-	callback = function()
-		if vim.v.oldfiles and vim.fn.line("'\"") > 0 and vim.fn.line("'\"") <= vim.fn.line("$") then
-			vim.cmd("normal! g`\"")
-		end
-	end,
+vim.api.nvim_create_autocmd('BufReadPost', {
+    pattern = '*',
+    callback = function()
+        if vim.v.oldfiles and vim.fn.line '\'"' > 0 and vim.fn.line '\'"' <= vim.fn.line '$' then
+            vim.cmd 'normal! g`"'
+        end
+    end,
 })
 
 -- Remember info about open buffers on close
-vim.cmd("set viminfo ^=%")
+vim.cmd 'set viminfo ^=%'
 
 -- Project Specific vimrc
 -- =================================
@@ -115,18 +115,18 @@ vim.o.secure = true
 -- Syntax Highlighting
 -- ================================
 
-vim.api.nvim_create_autocmd("BufEnter", {
-	pattern = ".psqlrc",
-	callback = function()
-		vim.o.filetype = "sql"
-	end,
+vim.api.nvim_create_autocmd('BufEnter', {
+    pattern = '.psqlrc',
+    callback = function()
+        vim.o.filetype = 'sql'
+    end,
 })
 
-vim.api.nvim_create_autocmd("BufEnter", {
-	pattern = "bash_profile",
-	callback = function()
-		vim.o.filetype = "sh"
-	end,
+vim.api.nvim_create_autocmd('BufEnter', {
+    pattern = 'bash_profile',
+    callback = function()
+        vim.o.filetype = 'sh'
+    end,
 })
 
 -- Creates parent directories on save
@@ -145,14 +145,14 @@ function! s:MkNonExDir(file, buf)
 ]]
 
 -- Change program used by :grep
-vim.o.grepprg = "rg --vimgrep --smart-case --follow"
+vim.o.grepprg = 'rg --vimgrep --smart-case --follow'
 
 -- Do not source the default filetypes.vim
 vim.cmd [[set updatetime=300]]
 
 local g, opt = vim.g, vim.opt
 
-g.mapleader = ","
+g.mapleader = ','
 
 opt.shell = 'fish'
 opt.shellquote = ''

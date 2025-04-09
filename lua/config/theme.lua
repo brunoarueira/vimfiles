@@ -15,17 +15,17 @@ opt.sidescroll = 1
 opt.cf = true
 opt.incsearch = true
 opt.hlsearch = true
-opt.fillchars = ""
+opt.fillchars = ''
 opt.cursorline = true
 
 -- cmd
-cmd.colorscheme('nordic')
+cmd.colorscheme 'nordic'
 
 -- Highlight yank'd text after yankin'
-api.nvim_create_augroup("YankHighlight", {})
-api.nvim_create_autocmd("TextYankPost", {
-	group = "YankHighlight",
-	callback = function()
-		vim.highlight.on_yank({ higroup = "IncSearch", timeout = 100 })
-	end,
+api.nvim_create_augroup('YankHighlight', {})
+api.nvim_create_autocmd('TextYankPost', {
+    group = 'YankHighlight',
+    callback = function()
+        vim.highlight.on_yank { higroup = 'IncSearch', timeout = 100 }
+    end,
 })

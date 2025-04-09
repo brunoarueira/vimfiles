@@ -1,21 +1,21 @@
 local map = function(mode, shortcut, command)
-  vim.api.nvim_set_keymap(mode, shortcut, command, { noremap = true, silent = true })
+    vim.api.nvim_set_keymap(mode, shortcut, command, { noremap = true, silent = true })
 end
 
 local nmap = function(shortcut, command)
-  map('n', shortcut, command)
+    map('n', shortcut, command)
 end
 
 local imap = function(shortcut, command)
-  map('i', shortcut, command)
+    map('i', shortcut, command)
 end
 
 local vmap = function(shortcut, command)
-  map('v', shortcut, command)
+    map('v', shortcut, command)
 end
 
 local cmap = function(shortcut, command)
-  map('c', shortcut, command)
+    map('c', shortcut, command)
 end
 
 -- Faster commands
@@ -99,7 +99,7 @@ nmap('<Leader>b', ':Buffers<CR>')
 
 -- puts debuggerer
 -- https://tenderlovemaking.com/2016/02/05/i-am-a-puts-debuggerer.html :)
-nmap('<Leader>pt', 'oputs \"#\" * 90<C-M>puts \"<C-R>=expand(\"%\") . \':\' . line(\".\")<CR>\"<C-M>puts \"#\" * 90<esc>')
+nmap('<Leader>pt', 'oputs "#" * 90<C-M>puts "<C-R>=expand("%") . \':\' . line(".")<CR>"<C-M>puts "#" * 90<esc>')
 
 -- upper/lower word
 nmap('<leader>u', 'mQviwU`Q')

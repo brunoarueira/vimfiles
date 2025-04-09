@@ -2,22 +2,22 @@
 -- ==============================
 -- http://github.com/brunoarueira/vimfiles
 
-vim.cmd([[
+vim.cmd [[
   set nocompatible
   syntax enable
   syntax sync fromstart
   filetype off
-]])
+]]
 
-require('config.settings')
-require('config.lazy')
-require('plugins')
+require 'config.settings'
+require 'config.lazy'
+require 'plugins'
 
 vim.cmd [[filetype plugin indent on]]
 
-require('config.theme')
-require('config.shortcuts')
+require 'config.theme'
+require 'config.shortcuts'
 
-vim.cmd([[
+vim.cmd [[
   source ~/.config/nvim/config/functions.vimrc
-]])
+]]
