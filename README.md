@@ -12,7 +12,7 @@ This repository contains my personal Neovim configuration, tailored for daily us
     *   [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) (status line)
     *   [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim) (terminal management)
     *   [headlines.nvim](https://github.com/lukas-reineke/headlines.nvim) (headline support)
-    *   And many more (see `lua/plugins.lua` and `lua/lazyvim.plugins.spec.lua` for a complete list).
+    *   And many more (see the files within the `lua/plugins/` directory for individual configurations).
 
 ## Prerequisites
 
@@ -37,9 +37,8 @@ This repository contains my personal Neovim configuration, tailored for daily us
 ## Configuration
 
 *   **`init.lua`:** The main entry point for Neovim configuration.
-*   **`lua/config/`:** Contains general settings and configurations.
-*   **`lua/plugins.lua` and `lua/lazyvim.plugins.spec.lua`:**  Plugin specifications for LazyVim.
-*   **`lua/brunoarueira/`:** Contains custom configurations and theme settings.
+*   **`lua/config/`:** Contains general settings and configurations (keymaps, options, etc.).
+*   **`lua/plugins/`:** Contains individual plugin specifications and configurations for LazyVim.
 
 ## Usage
 
