@@ -51,5 +51,6 @@
   "vim-illuminate": { "branch": "master", "commit": "19cb21f513fc2b02f0c66be70107741e837516a1" },
   "vim-json": { "branch": "master", "commit": "3727f089410e23ae113be6222e8a08dd2613ecf2" },
   "vim-multiple-cursors": { "branch": "master", "commit": "6456718e1d30b42c04b920c5413ca44f68f08759" },
-  "vim-ruby": { "branch": "master", "commit": "9139741a9d786144aae66755df030f8e5fab36df" }
+  "vim-ruby": { "branch": "master", "commit": "9139741a9d786144aae66755df030f8e5fab36df" },
+  "which-key.nvim": { "branch": "main", "commit": "370ec46f710e058c9c1646273e6b225acf47cbed" }
 }
