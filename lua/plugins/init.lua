@@ -58,6 +58,9 @@ return {
     {
         'akinsho/git-conflict.nvim', -- Git conflict resolution helper
         branch = 'main',
+        config = function()
+            require('git-conflict').setup()
+        end,
     },
 
     -- =========================================================================
