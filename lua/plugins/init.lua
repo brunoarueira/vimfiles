@@ -1,47 +1,51 @@
+-- This file lists plugins managed by lazy.nvim
+-- For more details, see: https://github.com/folke/lazy.nvim
+
 return {
-    'ervandew/supertab',
+    -- =========================================================================
+    -- == Core / Utility ==
+    -- =========================================================================
+    'tomtom/tlib_vim', -- Required by tabular
+    'MarcWeber/vim-addon-mw-utils', -- Required by tabular
+    'editorconfig/editorconfig-vim', -- Maintain consistent coding styles
 
-    { 'tpope/vim-eunuch', cmd = { 'Rename', 'Delete' } },
-    'godlygeek/tabular',
-    'tomtom/tlib_vim',
-    'MarcWeber/vim-addon-mw-utils',
-
-    'scrooloose/nerdtree',
-    'tomtom/tcomment_vim',
-    'tpope/vim-abolish',
-    'tpope/vim-git',
-    'vim-ruby/vim-ruby',
-    'vim-scripts/gitignore',
-    'bogado/file-line',
-    'terryma/vim-multiple-cursors',
-    'victormours/ruby-memoize.vim',
-    'editorconfig/editorconfig-vim',
-
+    -- =========================================================================
+    -- == UI / Appearance ==
+    -- =========================================================================
     {
-        'RRethy/vim-illuminate',
-        event = { 'BufReadPost', 'BufNewFile' },
-        opts = {
-            delay = 200,
-            filetypes_denylist = {
-                'dirbuf',
-                'dirvish',
-                'fugitive',
-                'NvimTree',
-            },
-        },
-        config = function(_, opts)
-            require('illuminate').configure(opts)
-
-            vim.api.nvim_set_hl(0, 'IlluminatedWordText', { link = 'Visual' })
-            vim.api.nvim_set_hl(0, 'IlluminatedWordRead', { link = 'Visual' })
-            vim.api.nvim_set_hl(0, 'IlluminatedWordWrite', { link = 'Visual' })
+        'AlexvZyl/nordic.nvim', -- Theme
+        lazy = false,
+        priority = 1000,
+        config = function()
+            require('nordic').load()
         end,
     },
+    'NvChad/nvim-colorizer.lua', -- Display colors based on their codes
+    'ellisonleao/glow.nvim', -- Markdown preview
 
-    'NvChad/nvim-colorizer.lua',
+    -- =========================================================================
+    -- == File Management / Navigation ==
+    -- =========================================================================
+    'scrooloose/nerdtree', -- File explorer
+    { 'tpope/vim-eunuch', cmd = { 'Rename', 'Delete' } }, -- Unix commands for file manipulation
 
+    -- =========================================================================
+    -- == Editing Enhancements ==
+    -- =========================================================================
+    'ervandew/supertab', -- Context-aware completion
+    'godlygeek/tabular', -- Text alignment
+    'tomtom/tcomment_vim', -- Code commenting
+    'tpope/vim-abolish', -- Smart abbreviations and substitutions
+    'bogado/file-line', -- Go to file:line quickly
+    'terryma/vim-multiple-cursors', -- Multiple cursors support
+
+    -- =========================================================================
+    -- == Git Integration ==
+    -- =========================================================================
+    'tpope/vim-git', -- Basic Git commands and integration
+    'vim-scripts/gitignore', -- Gitignore file syntax and support
     {
-        'lewis6991/gitsigns.nvim',
+        'lewis6991/gitsigns.nvim', -- Git decorations in the sign column
         event = 'VeryLazy',
         config = function()
             require('gitsigns').setup()
@@ -52,7 +56,17 @@ return {
     },
 
     {
-        'ray-x/go.nvim',
+        'akinsho/git-conflict.nvim', -- Git conflict resolution helper
+        branch = 'main',
+    },
+
+    -- =========================================================================
+    -- == Language Support / LSP / Treesitter ==
+    -- =========================================================================
+    'vim-ruby/vim-ruby', -- Ruby language support
+    'victormours/ruby-memoize.vim', -- Ruby specific helper
+    {
+        'ray-x/go.nvim', -- Go language support and LSP integration
         dependencies = {
             'ray-x/guihua.lua',
         },
@@ -61,28 +75,25 @@ return {
     },
 
     {
-        'windwp/nvim-ts-autotag',
+        'windwp/nvim-ts-autotag', -- Auto close/rename HTML/XML tags (requires Treesitter)
         dependencies = {
             'nvim-treesitter/nvim-treesitter',
         },
         event = 'InsertEnter',
     },
-
+    'rust-lang/rust.vim', -- Rust language support
+    'elzr/vim-json', -- JSON syntax highlighting and support
     {
-        'AlexvZyl/nordic.nvim',
-        lazy = false,
-        priority = 1000,
-        config = function()
-            require('nordic').load()
-        end,
+        'pmizio/typescript-tools.nvim', -- TypeScript tooling and LSP integration
+        dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
     },
-    'rust-lang/rust.vim',
+    'wuelnerdotexe/vim-astro', -- Astro language support
 
-    -- JSON front matter highlight use
-    'elzr/vim-json',
-    'ellisonleao/glow.nvim',
+    -- =========================================================================
+    -- == Formatting / Linting ==
+    -- =========================================================================
     {
-        'stevearc/conform.nvim',
+        'stevearc/conform.nvim', -- Formatting framework
         opts = {
             format_on_save = {
                 timeout_ns = 5000,
@@ -90,56 +101,6 @@ return {
             },
             formatters_by_ft = {
                 lua = { 'stylua' },
-            },
-        },
-    },
-
-    'nvim-lua/plenary.nvim',
-
-    {
-        'pmizio/typescript-tools.nvim',
-        dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
-    },
-
-    {
-        'akinsho/git-conflict.nvim',
-        branch = 'main',
-    },
-
-    'wuelnerdotexe/vim-astro',
-
-    {
-        'yetone/avante.nvim',
-        branch = 'main',
-        run = 'make',
-        dependencies = {
-            -- Required plugins
-            { 'nvim-treesitter/nvim-treesitter' },
-            { 'stevearc/dressing.nvim' },
-            { 'nvim-lua/plenary.nvim' },
-            { 'MunifTanjim/nui.nvim' },
-            { 'MeanderingProgrammer/render-markdown.nvim' },
-
-            -- Optional dependencies
-            { 'hrsh7th/nvim-cmp' },
-            { 'nvim-tree/nvim-web-devicons' },
-            { 'HakonHarnes/img-clip.nvim' },
-        },
-        opts = {
-            provider = 'gemini',
-
-            gemini = {
-                model = 'gemini-2.5-pro-exp-03-25',
-                temperature = 0,
-                max_tokens = 4096,
-            },
-
-            behaviour = {
-                auto_suggestions = false, -- Experimental stage
-                auto_set_highlight_group = true,
-                auto_set_keymaps = true,
-                auto_apply_diff_after_generation = false,
-                support_paste_from_clipboard = false,
             },
         },
     },
