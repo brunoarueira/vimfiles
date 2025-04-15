@@ -24,9 +24,6 @@ nmap(';', ':')
 -- Fast saving
 nmap('<leader>w', ':w<CR>')
 
--- Finding in files
-nmap('<Leader>s', ':Rg<CR>')
-
 -- NERDTree
 nmap('<F2>', ':NERDTreeToggle<CR>')
 
@@ -92,10 +89,6 @@ nmap('<C-left>', '<c-w>h')
 -- Move between tabs
 nmap('<Tab>', 'gt')
 nmap('<S-Tab>', 'gT')
-
--- fzf
-nmap('<Leader>f', ':Files<CR>')
-nmap('<Leader>b', ':Buffers<CR>')
 
 -- puts debuggerer
 -- https://tenderlovemaking.com/2016/02/05/i-am-a-puts-debuggerer.html :)
