@@ -10,7 +10,6 @@ return {
     'tomtom/tcomment_vim',
     'tpope/vim-abolish',
     'tpope/vim-git',
-    -- "tpope/vim-rails",
     'vim-ruby/vim-ruby',
     'vim-scripts/gitignore',
     'bogado/file-line',
