@@ -17,7 +17,4 @@ vim.cmd [[filetype plugin indent on]]
 
 require 'config.theme'
 require 'config.shortcuts'
-
-vim.cmd [[
-  source ~/.config/nvim/config/functions.vimrc
-]]
+require 'config.functions'
