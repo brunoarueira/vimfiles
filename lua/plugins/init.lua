@@ -38,6 +38,7 @@ return {
     'tpope/vim-abolish', -- Smart abbreviations and substitutions
     'bogado/file-line', -- Go to file:line quickly
     'terryma/vim-multiple-cursors', -- Multiple cursors support
+    'jgdavey/vim-blockle', -- Convert ruby block formats
 
     -- =========================================================================
     -- == Git Integration ==
