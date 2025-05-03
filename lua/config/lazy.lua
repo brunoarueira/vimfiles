@@ -28,3 +28,5 @@ require('lazy').setup('plugins', {
     -- automatically check for plugin updates
     checker = { enabled = false },
 })
+
+vim.g.lazyvim_picker = 'snacks'

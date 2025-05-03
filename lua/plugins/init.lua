@@ -39,6 +39,7 @@ return {
     'bogado/file-line', -- Go to file:line quickly
     'terryma/vim-multiple-cursors', -- Multiple cursors support
     'jgdavey/vim-blockle', -- Convert ruby block formats
+    'folke/snacks.nvim', -- A collection of QoL plugins for Neovim
 
     -- =========================================================================
     -- == Git Integration ==
@@ -61,6 +62,28 @@ return {
         branch = 'main',
         config = function()
             require('git-conflict').setup()
+        end,
+    },
+
+    {
+        'sindrets/diffview.nvim', -- Enhanced diff viewing
+        cmd = {
+            'DiffviewOpen',
+            'DiffviewClose',
+            'DiffviewFileHistory',
+            'DiffviewFocusFiles',
+            'DiffviewLog',
+            'DiffviewRefresh',
+            'DiffviewToggleFiles',
+        },
+        config = function()
+            vim.keymap.set('n', '<leader>v', function()
+                if next(require('diffview.lib').views) == nil then
+                    vim.cmd 'DiffviewOpen'
+                else
+                    vim.cmd 'DiffviewClose'
+                end
+            end)
         end,
     },
 
