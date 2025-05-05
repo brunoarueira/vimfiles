@@ -92,14 +92,6 @@ return {
     -- =========================================================================
     'vim-ruby/vim-ruby', -- Ruby language support
     'victormours/ruby-memoize.vim', -- Ruby specific helper
-    {
-        'ray-x/go.nvim', -- Go language support and LSP integration
-        dependencies = {
-            'ray-x/guihua.lua',
-        },
-        ft = { 'go', 'gomod' },
-        run = ':lua require(\'go.install\').update_all_sync()',
-    },
 
     {
         'windwp/nvim-ts-autotag', -- Auto close/rename HTML/XML tags (requires Treesitter)
