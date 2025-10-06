@@ -3,24 +3,44 @@ return {
         'yetone/avante.nvim',
         branch = 'main',
         run = 'make',
+        version = false,
         dependencies = {
             -- Required plugins
-            { 'nvim-treesitter/nvim-treesitter' },
-            { 'stevearc/dressing.nvim' },
             { 'nvim-lua/plenary.nvim' },
             { 'MunifTanjim/nui.nvim' },
-            { 'MeanderingProgrammer/render-markdown.nvim' },
 
             -- Optional dependencies
+            { 'nvim-telescope/telescope.nvim' },
             { 'hrsh7th/nvim-cmp' },
             { 'nvim-tree/nvim-web-devicons' },
-            { 'HakonHarnes/img-clip.nvim' },
+            { 'nvim-treesitter/nvim-treesitter' },
+            { 'stevearc/dressing.nvim' },
+            {
+                'HakonHarnes/img-clip.nvim',
+                event = 'VeryLazy',
+                opts = {
+                    default = {
+                        embed_image_as_base64 = false,
+                        prompt_for_file_name = false,
+                        drag_and_drop = {
+                            insert_mode = true,
+                        },
+                    },
+                },
+            },
+            {
+                'MeanderingProgrammer/render-markdown.nvim',
+                opts = {
+                    file_types = { 'markdown', 'Avante' },
+                },
+                ft = { 'markdown', 'Avante' },
+            },
         },
         opts = {
             provider = 'gemini',
 
             gemini = {
-                model = 'gemini-2.5-pro-exp-03-25',
+                model = 'gemini-2.5-pro',
                 temperature = 0,
                 max_tokens = 4096,
             },
