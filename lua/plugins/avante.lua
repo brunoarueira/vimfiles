@@ -39,10 +39,12 @@ return {
         opts = {
             provider = 'gemini',
 
-            gemini = {
-                model = 'gemini-2.5-pro',
-                temperature = 0,
-                max_tokens = 4096,
+            providers = {
+                gemini = {
+                    model = 'gemini-2.0-flash',
+                    temperature = 0.3,
+                    max_tokens = 1024,
+                },
             },
 
             behaviour = {
