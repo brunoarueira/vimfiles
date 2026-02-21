@@ -176,6 +176,7 @@ return {
             'eslint',
             'gopls',
             'lua_ls',
+            'pyright',
             'rust_analyzer',
             'solargraph',
             'vale_ls',
@@ -204,6 +205,10 @@ return {
 
         lspconfig.gopls.setup {
             filetypes = { 'go', 'gomod' },
+        }
+
+        lspconfig.pyright.setup {
+            filetypes = { 'py' },
         }
 
         lspconfig.vale_ls.setup {
